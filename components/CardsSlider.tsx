@@ -3,32 +3,32 @@ import { StyleSheet, Text, View } from "react-native";
 
 const lists = [
   {
-    label: "Monly ",
+    label: "monthly revenue ",
     content: "",
     icon: "wallet-outline",
   },
   {
-    label: "Monly ",
+    label: "active orders ",
     content: "",
     icon: "wallet-outline",
   },
   {
-    label: "Monly ",
+    label: "new users",
     content: "",
     icon: "wallet-outline",
   },
   {
-    label: "Monly ",
+    label: "sms sent",
+    content: "0",
+    icon: "wallet-outline",
+  },
+  {
+    label: "Monly",
     content: "",
     icon: "wallet-outline",
   },
   {
-    label: "Monly ",
-    content: "",
-    icon: "wallet-outline",
-  },
-  {
-    label: "refer & earn ",
+    label: "refer & earn",
     content: "",
     icon: "wallet-outline",
   },
