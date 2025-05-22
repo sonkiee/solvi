@@ -1,13 +1,13 @@
 import { Images } from "@/constants";
 import { ImageBackground } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
-import { StyleSheet } from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet, View } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 const Container = ({ children }: { children: React.ReactNode }) => {
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <ImageBackground
           source={Images.bg}
           style={styles.background}
@@ -22,7 +22,7 @@ const Container = ({ children }: { children: React.ReactNode }) => {
             {children}
           </LinearGradient>
         </ImageBackground>
-      </SafeAreaView>
+      </View>
     </SafeAreaProvider>
   );
 };
