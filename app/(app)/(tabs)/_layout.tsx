@@ -11,7 +11,7 @@ import { StyleSheet, View } from "react-native";
 const ExchangeTabIcon = ({ color, size }: { color: string; size: number }) => (
   <View style={styles.outer}>
     <View style={styles.inner}>
-      <FontAwesome name="yen" color={color} size={size} />
+      <FontAwesome name="yen" color={color} size={size * 0.8} />
     </View>
   </View>
 );
@@ -67,13 +67,21 @@ export default function TabsLayout() {
 
 const styles = StyleSheet.create({
   outer: {
+    position: "absolute",
+    bottom: 0,
+    alignSelf: "center", // center it horizontally
+    elevation: 5, // Android shadow
+    shadowColor: "#000", // iOS shadow
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    shadowOffset: { width: 0, height: 2 },
+
     borderRadius: 999,
     borderWidth: 2,
     borderColor: "#FF9F1C",
-    width: 50,
-    height: 50,
-    paddingHorizontal: 2,
-    paddingVertical: 2,
+    width: 55,
+    height: 55,
+    padding: 4,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "white",
@@ -90,11 +98,10 @@ const styles = StyleSheet.create({
   inner: {
     backgroundColor: "#FF9F1C",
     borderRadius: 999,
-    width: 35,
-    height: 35,
+    width: 38,
+    height: 38,
     justifyContent: "center",
     alignItems: "center",
-    paddingHorizontal: 2,
-    paddingVertical: 2,
+    padding: 4,
   },
 });
