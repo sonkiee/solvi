@@ -31,7 +31,8 @@ const Container = ({ children }: { children: React.ReactNode }) => {
         <View
           style={{
             flex: 1,
-            ...(layout ? { paddingTop: insets.top } : {}),
+            // ...(layout ? {  } : {}),
+            paddingTop: insets.top,
           }}
         >
           {children}
