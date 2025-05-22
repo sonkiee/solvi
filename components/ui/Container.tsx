@@ -1,8 +1,7 @@
 import { Images } from "@/constants";
 import { ImageBackground } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
-import { usePathname, useSegments } from "expo-router";
-import { useEffect } from "react";
+import { useSegments } from "expo-router";
 import { StyleSheet, View } from "react-native";
 import {
   SafeAreaProvider,
@@ -11,15 +10,9 @@ import {
 
 const Container = ({ children }: { children: React.ReactNode }) => {
   const insets = useSafeAreaInsets();
-  const pathname = usePathname();
   const segment = useSegments();
 
-  useEffect(() => {
-    console.log({
-      "Current path:": pathname,
-      "Current segment:": segment.join("/"),
-    });
-  }, []);
+  const layout = segment.join("/").includes("/_layout");
 
   return (
     <SafeAreaProvider>
@@ -38,7 +31,7 @@ const Container = ({ children }: { children: React.ReactNode }) => {
         <View
           style={{
             flex: 1,
-            paddingTop: insets.top,
+            ...(layout ? { paddingTop: insets.top } : {}),
           }}
         >
           {children}
