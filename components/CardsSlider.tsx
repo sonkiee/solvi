@@ -18,6 +18,11 @@ const lists = [
     icon: "wallet-outline",
   },
   {
+    label: "new users",
+    content: "",
+    icon: "wallet-outline",
+  },
+  {
     label: "sms sent",
     content: "0",
     icon: "wallet-outline",
