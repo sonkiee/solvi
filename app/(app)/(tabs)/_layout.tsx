@@ -1,4 +1,4 @@
-import Feather from "@expo/vector-icons/Feather";
+import { AntDesign, Feather } from "@expo/vector-icons/";
 import { Tabs } from "expo-router";
 
 export default function TabsLayout() {
@@ -12,7 +12,14 @@ export default function TabsLayout() {
           ),
         }}
       />
-      <Tabs.Screen name="bills" />
+      <Tabs.Screen
+        name="bills"
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <AntDesign name="filetext1" scolor={color} size={size} />
+          ),
+        }}
+      />
       <Tabs.Screen name="exchange" />
       <Tabs.Screen name="products" />
       <Tabs.Screen name="profile" />
