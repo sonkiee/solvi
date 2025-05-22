@@ -10,7 +10,14 @@ const IconButton = ({
 }) => {
   return (
     <Pressable style={styles.container}>
-      <Text>{title}</Text>
+      <Text
+        style={{
+          color: "#ccc",
+          textTransform: "capitalize",
+        }}
+      >
+        {title}
+      </Text>
     </Pressable>
   );
 };
@@ -22,7 +29,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     borderWidth: 1,
     width: 120 * 0.8,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
     paddingVertical: 8,
     justifyContent: "center",
     alignContent: "center",
