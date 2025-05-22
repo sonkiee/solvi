@@ -1,5 +1,6 @@
 import { Images } from "@/constants";
 import { ImageBackground } from "expo-image";
+import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
@@ -12,7 +13,16 @@ const Container = ({ children }: { children: React.ReactNode }) => {
           style={styles.background}
           contentFit="cover"
         >
-          {children}
+          <LinearGradient
+            colors={["#2563eb", "#9333ea"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            style={{
+              flex: 1,
+            }}
+          >
+            {children}
+          </LinearGradient>
         </ImageBackground>
       </SafeAreaView>
     </SafeAreaProvider>
