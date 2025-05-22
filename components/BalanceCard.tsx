@@ -1,6 +1,7 @@
 import { Feather } from "@expo/vector-icons";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import IconButton from "./IconButton";
 
 const BalanceCard = () => {
   return (
@@ -17,7 +18,11 @@ const BalanceCard = () => {
         <Feather name="eye-off" size={18} color="white" />
       </View>
       <Text>10,000.00</Text>
-      <View style={styles.buttonContainer}></View>
+      <View style={styles.buttonContainer}>
+        {["fund", "transfer", "history"].map((button, index) => (
+          <IconButton key={index} title={button} />
+        ))}
+      </View>
     </View>
   );
 };
@@ -30,8 +35,9 @@ const styles = StyleSheet.create({
     marginTop: 30,
     borderRadius: 5,
     width: "100%",
-    height: 80,
+    // height: 80,
     paddingHorizontal: 14,
+    paddingVertical: 10,
     backgroundColor: "rgba(255, 255, 255, 0.2)",
   },
   buttonContainer: {},
