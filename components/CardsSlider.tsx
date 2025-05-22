@@ -44,6 +44,14 @@ const CardsSlider = () => {
   return (
     <View style={styles.container}>
       <Text>CardsSlider</Text>
+
+      {lists.map((list, index) => (
+        <View key={index} style={styles.content}>
+          <Text style={{ color: list.colors[0] }}>{list.label}</Text>
+          <Text style={{ color: list.colors[1] }}>{list.content}</Text>
+          <Text style={{ color: list.colors[2] }}>{list.icon}</Text>
+        </View>
+      ))}
     </View>
   );
 };
