@@ -12,12 +12,13 @@ const Container = ({ children }: { children: React.ReactNode }) => {
   return (
     <SafeAreaProvider>
       <View
-        style={{
-          paddingTop: insets.top,
-          backgroundColor: "transparent",
-        }}
-      />
-      <View style={styles.container}>
+        style={[
+          styles.container,
+          {
+            paddingTop: insets.top,
+          },
+        ]}
+      >
         <ImageBackground
           source={Images.bg}
           style={styles.background}
