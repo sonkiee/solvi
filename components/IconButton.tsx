@@ -21,6 +21,11 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 6,
     borderWidth: 1,
-    width: "50%",
+    width: 120 * 0.8,
+    paddingHorizontal: 20,
+    paddingVertical: 8,
+    justifyContent: "center",
+    alignContent: "center",
+    alignItems: "center",
   },
 });

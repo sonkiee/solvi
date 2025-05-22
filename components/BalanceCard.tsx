@@ -42,9 +42,11 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     paddingHorizontal: 16,
     paddingVertical: 10,
     gap: 10,
+    flex: 1,
+    width: "100%",
   },
 });
