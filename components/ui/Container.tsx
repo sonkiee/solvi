@@ -1,13 +1,17 @@
 import { Images } from "@/constants";
 import { ImageBackground } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
-import { StyleSheet } from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet, View } from "react-native";
+import {
+  SafeAreaProvider,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 
 const Container = ({ children }: { children: React.ReactNode }) => {
+  const insets = useSafeAreaInsets();
   return (
     <SafeAreaProvider>
-      <SafeAreaView
+      <View
         style={styles.safeArea}
         // edges={["top", "bottom", "left", "right"]}
       >
@@ -20,12 +24,17 @@ const Container = ({ children }: { children: React.ReactNode }) => {
             colors={["rgba(147, 51, 234, 0.4)", "rgba(37, 99, 235, 0.5)"]}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
-            style={styles.gradient}
+            style={[
+              styles.gradient,
+              {
+                paddingTop: insets.top,
+              },
+            ]}
           >
             {children}
           </LinearGradient>
         </ImageBackground>
-      </SafeAreaView>
+      </View>
     </SafeAreaProvider>
   );
 };
