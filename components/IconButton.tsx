@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 6,
     borderWidth: 1,
+    borderColor: "#cccccc",
     width: 120 * 0.8,
     paddingHorizontal: 10,
     paddingVertical: 8,
