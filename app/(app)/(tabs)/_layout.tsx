@@ -18,12 +18,12 @@ const ExchangeTabIcon = ({ color, size }: { color: string; size: number }) => {
       Animated.sequence([
         Animated.timing(bounceAnim, {
           toValue: -6, // move up
-          duration: 400,
+          duration: 800,
           useNativeDriver: true,
         }),
         Animated.timing(bounceAnim, {
           toValue: 0, // move back down
-          duration: 400,
+          duration: 800,
           useNativeDriver: true,
         }),
       ])
@@ -111,13 +111,12 @@ const styles = StyleSheet.create({
   outer: {
     position: "absolute",
     bottom: 0,
-    alignSelf: "center", // center it horizontally
-    elevation: 5, // Android shadow
-    shadowColor: "#000", // iOS shadow
+    alignSelf: "center",
+    elevation: 5,
+    shadowColor: "#000",
     shadowOpacity: 0.3,
     shadowRadius: 5,
     shadowOffset: { width: 0, height: 2 },
-
     borderRadius: 999,
     borderWidth: 2,
     borderColor: "rgba(37, 99, 235, 0.3)",
@@ -127,10 +126,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "white",
-    alignContent: "center",
   },
   inner: {
-    backgroundColor: "#FF9F1C",
     borderRadius: 999,
     width: 40,
     height: 40,
