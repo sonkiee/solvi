@@ -1,10 +1,11 @@
 import { AntDesign, Feather } from "@expo/vector-icons";
+import { BlurView } from "expo-blur";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
 const HomeHeader = () => {
   return (
-    <View style={styles.container}>
+    <BlurView intensity={50} tint="dark" style={styles.container}>
       <View style={styles.actionContainer}>
         <Feather name="bell" size={24} color="#000" />
         <View style={styles.iconGroup}>
@@ -12,7 +13,7 @@ const HomeHeader = () => {
           <Feather name="user" size={24} color="green" />
         </View>
       </View>
-    </View>
+    </BlurView>
   );
 };
 
