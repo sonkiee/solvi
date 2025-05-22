@@ -11,9 +11,9 @@ const Container = ({ children }: { children: React.ReactNode }) => {
           source={Images.bg}
           style={{
             flex: 1,
-            justifyContent: "center",
+            ...StyleSheet.absoluteFillObject,
           }}
-          resizeMode="cover"
+          contentFit="cover"
         />
         {children}
       </SafeAreaView>
