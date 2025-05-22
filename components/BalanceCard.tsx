@@ -1,4 +1,9 @@
-import { Feather, Ionicons } from "@expo/vector-icons";
+import {
+  Feather,
+  FontAwesome6,
+  Ionicons,
+  MaterialCommunityIcons,
+} from "@expo/vector-icons";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import IconButton from "./IconButton";
@@ -26,11 +31,19 @@ const BalanceCard = () => {
           },
           {
             label: "transfer",
-            icon: <Feather name="arrow-right" size={18} color="#ccc" />,
+            icon: (
+              <FontAwesome6
+                name="arrow-right-arrow-left"
+                size={18}
+                color="#ccc"
+              />
+            ),
           },
           {
             label: "history",
-            icon: <Feather name="arrow-right" size={18} color="#ccc" />,
+            icon: (
+              <MaterialCommunityIcons name="history" size={18} color="#ccc" />
+            ),
           },
         ].map((button, index) => (
           <IconButton key={index} title={button.label} icon={button.icon} />
