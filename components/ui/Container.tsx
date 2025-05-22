@@ -1,23 +1,15 @@
 import { Images } from "@/constants";
 import { ImageBackground } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
-import { StyleSheet, View } from "react-native";
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from "react-native-safe-area-context";
+import { StyleSheet } from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 const Container = ({ children }: { children: React.ReactNode }) => {
-  const insets = useSafeAreaInsets();
   return (
     <SafeAreaProvider>
-      <View
-        style={[
-          styles.container,
-          {
-            paddingTop: insets.top,
-          },
-        ]}
+      <SafeAreaView
+        style={styles.safeArea}
+        edges={["top", "bottom", "left", "right"]}
       >
         <ImageBackground
           source={Images.bg}
@@ -28,12 +20,12 @@ const Container = ({ children }: { children: React.ReactNode }) => {
             colors={["rgba(147, 51, 234, 0.4)", "rgba(37, 99, 235, 0.5)"]}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
-            style={{ flex: 1 }}
+            style={styles.gradient}
           >
             {children}
           </LinearGradient>
         </ImageBackground>
-      </View>
+      </SafeAreaView>
     </SafeAreaProvider>
   );
 };
@@ -41,12 +33,13 @@ const Container = ({ children }: { children: React.ReactNode }) => {
 export default Container;
 
 const styles = StyleSheet.create({
-  container: {
+  safeArea: {
     flex: 1,
   },
   background: {
     flex: 1,
-    justifyContent: "center",
-    // backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  gradient: {
+    flex: 1,
   },
 });

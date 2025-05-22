@@ -9,7 +9,7 @@ export default function RootLayout() {
           headerShown: false,
         }}
       />
-      <StatusBar style="dark" animated={true} backgroundColor={"green"} />
+      <StatusBar style="dark" />
     </>
   );
 }
