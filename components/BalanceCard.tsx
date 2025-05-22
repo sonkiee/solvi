@@ -19,8 +19,21 @@ const BalanceCard = () => {
       </View>
       <Text>10,000.00</Text>
       <View style={styles.buttonContainer}>
-        {["fund", "transfer", "history"].map((button, index) => (
-          <IconButton key={index} title={button} />
+        {[
+          {
+            label: "fund",
+            icon: <Feather name="arrow-right" size={18} color="#ccc" />,
+          },
+          {
+            label: "transfer",
+            icon: <Feather name="arrow-right" size={18} color="#ccc" />,
+          },
+          {
+            label: "history",
+            icon: <Feather name="arrow-right" size={18} color="#ccc" />,
+          },
+        ].map((button, index) => (
+          <IconButton key={index} title={button.label} icon={button.icon} />
         ))}
       </View>
     </View>
