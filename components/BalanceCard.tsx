@@ -1,3 +1,4 @@
+import { currency } from "@/utils/currency";
 import {
   Feather,
   FontAwesome6,
@@ -24,7 +25,7 @@ const BalanceCard = () => {
         </Text>
         <Feather name="eye-off" size={18} color="#eee" />
       </View>
-      <Text style={styles.balance}>10,000.00</Text>
+      <Text style={styles.balance}>{currency(10000)}</Text>
       <View style={styles.buttonContainer}>
         {[
           {
