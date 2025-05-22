@@ -9,46 +9,32 @@ import {
 
 const Container = ({ children }: { children: React.ReactNode }) => {
   const insets = useSafeAreaInsets();
+
   return (
     <SafeAreaProvider>
-      <View
-        style={styles.safeArea}
-        // edges={["top", "bottom", "left", "right"]}
+      <ImageBackground
+        source={Images.bg}
+        style={StyleSheet.absoluteFill}
+        contentFit="cover"
       >
-        <ImageBackground
-          source={Images.bg}
-          style={styles.background}
-          contentFit="cover"
+        <LinearGradient
+          colors={["rgba(147, 51, 234, 0.4)", "rgba(37, 99, 235, 0.5)"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+          style={StyleSheet.absoluteFill}
+        />
+
+        <View
+          style={{
+            flex: 1,
+            paddingTop: insets.top,
+          }}
         >
-          <LinearGradient
-            colors={["rgba(147, 51, 234, 0.4)", "rgba(37, 99, 235, 0.5)"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={[
-              styles.gradient,
-              {
-                paddingTop: insets.top,
-              },
-            ]}
-          >
-            {children}
-          </LinearGradient>
-        </ImageBackground>
-      </View>
+          {children}
+        </View>
+      </ImageBackground>
     </SafeAreaProvider>
   );
 };
 
 export default Container;
-
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-  },
-  background: {
-    flex: 1,
-  },
-  gradient: {
-    flex: 1,
-  },
-});
