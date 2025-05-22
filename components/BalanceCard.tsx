@@ -46,7 +46,12 @@ const BalanceCard = () => {
             ),
           },
         ].map((button, index) => (
-          <IconButton key={index} title={button.label} icon={button.icon} />
+          <IconButton
+            key={index}
+            index={index}
+            title={button.label}
+            icon={button.icon}
+          />
         ))}
       </View>
     </View>
