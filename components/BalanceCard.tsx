@@ -36,7 +36,7 @@ const BalanceCard = () => {
             icon: (
               <FontAwesome6
                 name="arrow-right-arrow-left"
-                size={18}
+                size={16}
                 color="#ccc"
               />
             ),
