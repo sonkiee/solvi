@@ -4,7 +4,10 @@ import { ScrollView, StyleSheet, Text } from "react-native";
 const HomeScreen = () => {
   return (
     <Container top={1}>
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
+      <ScrollView
+        automaticallyAdjustContentInsets={true}
+        contentInsetAdjustmentBehavior="always"
+      >
         <Text>HomeScreen</Text>
       </ScrollView>
     </Container>
