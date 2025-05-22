@@ -6,7 +6,7 @@ const HomeScreen = () => {
     <Container top={1}>
       <ScrollView
         automaticallyAdjustContentInsets={true}
-        contentInsetAdjustmentBehavior="always"
+        contentInsetAdjustmentBehavior="automatic"
       >
         <Text>HomeScreen</Text>
       </ScrollView>

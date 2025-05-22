@@ -70,7 +70,7 @@ export default function TabsLayout() {
         <Tabs.Screen
           name="home"
           options={{
-            headerTransparent: true,
+            headerShown: false,
             tabBarIcon: ({ color, size }) => (
               <Feather name="home" color={color} size={20} />
             ),
