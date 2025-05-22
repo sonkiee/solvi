@@ -18,12 +18,12 @@ const ExchangeTabIcon = ({ color, size }: { color: string; size: number }) => {
       Animated.sequence([
         Animated.timing(bounceAnim, {
           toValue: -6, // move up
-          duration: 800,
+          duration: 750,
           useNativeDriver: true,
         }),
         Animated.timing(bounceAnim, {
           toValue: 0, // move back down
-          duration: 800,
+          duration: 750,
           useNativeDriver: true,
         }),
       ])
