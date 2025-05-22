@@ -1,10 +1,22 @@
+import { Feather } from "@expo/vector-icons";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 const BalanceCard = () => {
   return (
     <View style={styles.container}>
-      <Text>BalanceCard</Text>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          paddingVertical: 10,
+          paddingHorizontal: 12,
+        }}
+      >
+        <Text style={{ color: "#eee" }}>Wallet Balance</Text>
+        <Feather name="eye-off" size={18} color="white" />
+      </View>
     </View>
   );
 };
