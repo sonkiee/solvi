@@ -1,3 +1,4 @@
+import { Feather } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
@@ -30,10 +31,20 @@ const PromoCard = ({
           alignItems: "center",
         }}
       >
-        <Text style={{ fontWeight: "400", color: "#f5f5f5", fontSize: 16 }}>
-          {" "}
-          Learn more
-        </Text>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            alignContent: "center",
+            gap: 5,
+          }}
+        >
+          <Text style={{ fontWeight: "400", color: "#ccc", fontSize: 15 }}>
+            Learn more
+          </Text>
+          <Feather name="arrow-right" size={12} color="#ccc" />
+        </View>
         {icon}
       </View>
     </LinearGradient>
