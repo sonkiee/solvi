@@ -5,12 +5,16 @@ import { StyleSheet, View } from "react-native";
 
 const HomeHeader = () => {
   return (
-    <BlurView intensity={50} tint="dark" style={styles.container}>
+    <BlurView intensity={80} tint="dark" style={styles.container}>
       <View style={styles.actionContainer}>
-        <Feather name="bell" size={24} color="#000" />
+        <Feather name="bell" size={18} color="#fff" />
         <View style={styles.iconGroup}>
           <AntDesign name="questioncircleo" size={24} color="#000" />
-          <Feather name="user" size={24} color="green" />
+          <View
+            style={{ backgroundColor: "white", padding: 4, borderRadius: 999 }}
+          >
+            <Feather name="user" size={24} color="#9333ea" />
+          </View>
         </View>
       </View>
     </BlurView>
@@ -22,7 +26,7 @@ export default HomeHeader;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#9333ea",
-    paddingTop: 40,
+    paddingTop: 15,
     paddingHorizontal: 16,
     paddingBottom: 12,
     shadowColor: "#000",
@@ -38,6 +42,7 @@ const styles = StyleSheet.create({
   },
   iconGroup: {
     flexDirection: "row",
+    gap: 8,
     alignItems: "center",
   },
   iconSpacing: {
