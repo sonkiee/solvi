@@ -1,3 +1,4 @@
+import CardsSlider from "@/components/CardsSlider";
 import HomeHeader from "@/components/HomeHeader";
 import Container from "@/components/ui/Container";
 import { ScrollView, StyleSheet, Text } from "react-native";
@@ -10,6 +11,8 @@ const HomeScreen = () => {
         contentInsetAdjustmentBehavior="automatic"
       >
         <HomeHeader />
+
+        <CardsSlider />
         <Text>HomeScreen</Text>
       </ScrollView>
     </Container>
