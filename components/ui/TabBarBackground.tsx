@@ -6,7 +6,7 @@ export default function GradientTabBarBackground() {
   return (
     <LinearGradient
       colors={[
-        "#FF9F1C", // orange
+        "#2563eb", // orange
         "#FF5722", // deep orange
       ]}
       style={styles.tabBar}
