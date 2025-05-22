@@ -9,12 +9,19 @@ export default function GradientTabBarBackground() {
         "#FF9F1C", // orange
         "#FF5722", // deep orange
       ]}
-      style={StyleSheet.absoluteFill}
+      style={styles.tabBar}
     />
   );
 }
 
-// const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  tabBar: {
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    borderTopColor: "transparent",
+    ...StyleSheet.absoluteFillObject,
+  },
+});
 
 export function useBottomTabOverflow() {
   return useBottomTabBarHeight();
