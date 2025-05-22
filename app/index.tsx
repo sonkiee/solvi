@@ -1,13 +1,14 @@
 // import { Redirect } from "expo-router";
-import { SafeAreaView, Text, View } from "react-native";
+import Container from "@/components/ui/Container";
+import { Text, View } from "react-native";
 
 export default function Index() {
   return (
-    <SafeAreaView>
+    <Container>
       <View>
         <Text> Hello</Text>
       </View>
-    </SafeAreaView>
+    </Container>
   );
 }
 
