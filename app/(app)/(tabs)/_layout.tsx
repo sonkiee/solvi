@@ -5,15 +5,21 @@ import {
   FontAwesome,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
 import { Tabs } from "expo-router";
 import { StyleSheet, View } from "react-native";
 
 // Fix: Rename to PascalCase
 const ExchangeTabIcon = ({ color, size }: { color: string; size: number }) => (
   <View style={styles.outer}>
-    <View style={styles.inner}>
+    <LinearGradient
+      colors={["#2563eb", "#9333ea"]} // left to right gradient
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 0 }}
+      style={styles.inner}
+    >
       <FontAwesome name="yen" color={color} size={size * 0.8} />
-    </View>
+    </LinearGradient>
   </View>
 );
 
@@ -103,8 +109,8 @@ const styles = StyleSheet.create({
   inner: {
     backgroundColor: "#FF9F1C",
     borderRadius: 999,
-    width: 38,
-    height: 38,
+    width: 40,
+    height: 40,
     justifyContent: "center",
     alignItems: "center",
     padding: 4,
