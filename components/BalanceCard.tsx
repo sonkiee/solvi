@@ -19,15 +19,17 @@ const BalanceCard = () => {
           paddingVertical: 10,
         }}
       >
-        <Text style={{ color: "#eee" }}>Wallet Balance</Text>
-        <Feather name="eye-off" size={18} color="white" />
+        <Text style={{ color: "#eee", fontWeight: "600", fontSize: 16 }}>
+          Wallet Balance
+        </Text>
+        <Feather name="eye-off" size={18} color="#eee" />
       </View>
-      <Text>10,000.00</Text>
+      <Text style={styles.balance}>10,000.00</Text>
       <View style={styles.buttonContainer}>
         {[
           {
             label: "fund",
-            icon: <Ionicons name="wallet-outline" size={18} color="#ccc" />,
+            icon: <Ionicons name="wallet-outline" size={18} color="purple" />,
           },
           {
             label: "transfer",
@@ -79,5 +81,11 @@ const styles = StyleSheet.create({
     gap: 10,
     flex: 1,
     width: "100%",
+  },
+  balance: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 10,
+    color: "#eee",
   },
 });

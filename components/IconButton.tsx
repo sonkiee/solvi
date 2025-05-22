@@ -16,10 +16,13 @@ const IconButton = ({
     >
       {icon && icon}
       <Text
-        style={{
-          color: "#ccc",
-          textTransform: "capitalize",
-        }}
+        style={[
+          {
+            color: "#ccc",
+            textTransform: "capitalize",
+          },
+          index === 0 && { color: "purple" },
+        ]}
       >
         {title}
       </Text>
