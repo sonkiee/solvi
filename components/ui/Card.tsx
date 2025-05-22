@@ -35,6 +35,7 @@ export default Card;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     borderRadius: 10,
     padding: 10,
     shadowColor: "#000",

@@ -1,5 +1,7 @@
 import CardsSlider from "@/components/CardsSlider";
 import HomeHeader from "@/components/HomeHeader";
+import QuickAction from "@/components/QuickAction";
+import TransactionsContainer from "@/components/TransactionsContainer";
 import Container from "@/components/ui/Container";
 import { ScrollView, StyleSheet, Text } from "react-native";
 
@@ -13,6 +15,10 @@ const HomeScreen = () => {
         <HomeHeader />
 
         <CardsSlider />
+
+        <QuickAction />
+
+        <TransactionsContainer />
         <Text>HomeScreen</Text>
       </ScrollView>
     </Container>

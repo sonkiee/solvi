@@ -71,6 +71,7 @@ export default function TabsLayout() {
           name="home"
           options={{
             headerShown: false,
+            title: "Home",
             tabBarIcon: ({ color, size }) => (
               <Feather name="home" color={color} size={20} />
             ),
@@ -79,6 +80,7 @@ export default function TabsLayout() {
         <Tabs.Screen
           name="bills"
           options={{
+            title: "Bills",
             tabBarIcon: ({ color, size }) => (
               <AntDesign name="filetext1" color={color} size={20} />
             ),
@@ -89,6 +91,7 @@ export default function TabsLayout() {
           options={{
             tabBarLabel: "",
             //   tabBarShowLabel: false,
+            title: "Exchange",
             tabBarIcon: ({ color, size }) => (
               <ExchangeTabIcon color={color} size={size} />
             ),
@@ -97,6 +100,8 @@ export default function TabsLayout() {
         <Tabs.Screen
           name="products"
           options={{
+            title: "Products",
+
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="grid" color={color} size={20} />
             ),
@@ -105,6 +110,7 @@ export default function TabsLayout() {
         <Tabs.Screen
           name="profile"
           options={{
+            title: "Profile",
             tabBarIcon: ({ color, size }) => (
               <Feather name="user" color={color} size={20} />
             ),
