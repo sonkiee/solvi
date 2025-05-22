@@ -9,13 +9,11 @@ const Container = ({ children }: { children: React.ReactNode }) => {
       <SafeAreaView style={styles.container}>
         <ImageBackground
           source={Images.bg}
-          style={{
-            flex: 1,
-            ...StyleSheet.absoluteFillObject,
-          }}
+          style={styles.background}
           contentFit="cover"
-        />
-        {children}
+        >
+          {children}
+        </ImageBackground>
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -24,6 +22,12 @@ const Container = ({ children }: { children: React.ReactNode }) => {
 export default Container;
 
 const styles = StyleSheet.create({
-  container: {},
-  bg: {},
+  container: {
+    flex: 1,
+  },
+  background: {
+    flex: 1,
+    justifyContent: "center",
+    // backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
 });
