@@ -7,6 +7,9 @@ const AppLayout = () => {
         name="(tabs)"
         options={{
           headerShown: false,
+          contentStyle: {
+            backgroundColor: "transparent",
+          },
         }}
       />
     </Stack>
