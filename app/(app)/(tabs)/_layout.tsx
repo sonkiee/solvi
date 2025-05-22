@@ -1,3 +1,4 @@
+import BlurTabBarBackground from "@/app-example/components/ui/TabBarBackground.ios";
 import {
   AntDesign,
   Feather,
@@ -25,6 +26,7 @@ export default function TabsLayout() {
           borderTopLeftRadius: 20,
           borderTopColor: "transparent",
         },
+        tabBarBackground: BlurTabBarBackground,
       }}
     >
       <Tabs.Screen
