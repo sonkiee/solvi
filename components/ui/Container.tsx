@@ -32,7 +32,7 @@ const Container = ({
         <View
           style={{
             flex: 1,
-            ...(top ? { top } : { paddingTop: insets.top }),
+            ...(top ? { paddingTop: top } : { paddingTop: insets.top }),
             // paddingTop: insets.top,
           }}
         >
