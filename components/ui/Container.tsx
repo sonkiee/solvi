@@ -2,11 +2,21 @@ import { Images } from "@/constants";
 import { ImageBackground } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, View } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import {
+  SafeAreaProvider,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 
 const Container = ({ children }: { children: React.ReactNode }) => {
+  const insets = useSafeAreaInsets();
   return (
     <SafeAreaProvider>
+      <View
+        style={{
+          paddingTop: insets.top,
+          backgroundColor: "transparent",
+        }}
+      />
       <View style={styles.container}>
         <ImageBackground
           source={Images.bg}
