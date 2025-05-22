@@ -4,12 +4,16 @@ import { Pressable, StyleSheet, Text } from "react-native";
 const IconButton = ({
   title = "button",
   icon,
+  index,
 }: {
   title: string;
   icon?: React.ReactElement;
+  index: number;
 }) => {
   return (
-    <Pressable style={styles.container}>
+    <Pressable
+      style={[styles.container, index === 0 && { backgroundColor: "#ccc" }]}
+    >
       {icon && icon}
       <Text
         style={{
