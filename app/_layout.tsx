@@ -8,6 +8,12 @@ export default function RootLayout() {
       <Stack
         screenOptions={{
           headerShown: false,
+          headerStyle: {
+            backgroundColor: "transparent",
+          },
+          contentStyle: {
+            backgroundColor: "transparent",
+          },
         }}
       />
       <StatusBar translucent backgroundColor="transparent" style="auto" />
