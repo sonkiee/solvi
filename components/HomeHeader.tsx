@@ -9,7 +9,7 @@ const HomeHeader = () => {
       <View style={styles.actionContainer}>
         <Feather name="bell" size={18} color="#fff" />
         <View style={styles.iconGroup}>
-          <AntDesign name="questioncircleo" size={24} color="#000" />
+          <AntDesign name="questioncircleo" size={20} color="#fff" />
           <View
             style={{ backgroundColor: "white", padding: 4, borderRadius: 999 }}
           >
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
   iconGroup: {
     flexDirection: "row",
-    gap: 8,
+    gap: 12,
     alignItems: "center",
   },
   iconSpacing: {
