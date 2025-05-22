@@ -20,7 +20,7 @@ export default HomeHeader;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    backgroundColor: "#9333ea",
     paddingTop: 40,
     paddingHorizontal: 16,
     paddingBottom: 12,
