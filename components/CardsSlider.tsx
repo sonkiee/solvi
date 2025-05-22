@@ -4,17 +4,17 @@ import { StyleSheet, Text, View } from "react-native";
 const lists = [
   {
     label: "monthly revenue ",
-    content: "",
+    content: "¥ 23,000",
     icon: "wallet-outline",
   },
   {
     label: "active orders ",
-    content: "",
+    content: "12",
     icon: "wallet-outline",
   },
   {
-    label: "new users",
-    content: "",
+    label: "unlock limits",
+    content: "get business account",
     icon: "wallet-outline",
   },
   {
@@ -24,17 +24,12 @@ const lists = [
   },
   {
     label: "sms sent",
-    content: "0",
-    icon: "wallet-outline",
-  },
-  {
-    label: "Monly",
-    content: "",
+    content: "100",
     icon: "wallet-outline",
   },
   {
     label: "refer & earn",
-    content: "",
+    content: "get ¥20 bonus",
     icon: "wallet-outline",
   },
 ];
