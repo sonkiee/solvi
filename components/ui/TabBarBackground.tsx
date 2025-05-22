@@ -16,8 +16,8 @@ export default function GradientTabBarBackground() {
 
 const styles = StyleSheet.create({
   tabBar: {
-    borderTopRightRadius: 20,
-    borderTopLeftRadius: 20,
+    borderTopRightRadius: 12,
+    borderTopLeftRadius: 12,
     borderTopColor: "transparent",
     ...StyleSheet.absoluteFillObject,
   },
