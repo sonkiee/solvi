@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet, Text } from "react-native";
 
 const HomeScreen = () => {
   return (
-    <Container top={0}>
+    <Container top={1}>
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <Text>HomeScreen</Text>
       </ScrollView>
