@@ -5,13 +5,23 @@ import { StyleSheet } from "react-native";
 const Card = ({
   colors,
   children,
+  height,
+  width,
 }: {
   children: ReactNode;
   colors: [string, string];
+  height?: number;
+  width?: number;
 }) => {
   return (
     <LinearGradient
-      style={styles.container}
+      style={[
+        styles.container,
+        {
+          height: height ? height * 0.8 : undefined,
+          width: width ? width * 0.8 : undefined,
+        },
+      ]}
       colors={colors ?? ["#FF5733", "#FFC300"]}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 0 }}
