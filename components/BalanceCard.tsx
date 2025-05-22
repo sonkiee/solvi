@@ -11,12 +11,13 @@ const BalanceCard = () => {
           justifyContent: "space-between",
           alignItems: "center",
           paddingVertical: 10,
-          paddingHorizontal: 12,
         }}
       >
         <Text style={{ color: "#eee" }}>Wallet Balance</Text>
         <Feather name="eye-off" size={18} color="white" />
       </View>
+      <Text>10,000.00</Text>
+      <View style={styles.buttonContainer}></View>
     </View>
   );
 };
@@ -30,7 +31,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     width: "100%",
     height: 80,
-    paddingHorizontal: 11,
+    paddingHorizontal: 14,
     backgroundColor: "rgba(255, 255, 255, 0.2)",
   },
+  buttonContainer: {},
 });
