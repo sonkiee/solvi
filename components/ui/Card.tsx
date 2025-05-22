@@ -1,0 +1,35 @@
+import { LinearGradient } from "expo-linear-gradient";
+import React, { ReactNode } from "react";
+import { StyleSheet } from "react-native";
+
+const Card = ({
+  colors,
+  children,
+}: {
+  children: ReactNode;
+  colors: [string, string];
+}) => {
+  return (
+    <LinearGradient
+      style={styles.container}
+      colors={colors ?? ["#FF5733", "#FFC300"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 0 }}
+    >
+      {children}
+    </LinearGradient>
+  );
+};
+
+export default Card;
+
+const styles = StyleSheet.create({
+  container: {
+    borderRadius: 10,
+    padding: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+  },
+});
