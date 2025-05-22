@@ -14,12 +14,10 @@ const Container = ({ children }: { children: React.ReactNode }) => {
           contentFit="cover"
         >
           <LinearGradient
-            colors={["#2563eb", "#9333ea"]}
+            colors={["rgba(37, 99, 235, 0.8)", "rgba(147, 51, 234, 0.0)"]}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
-            style={{
-              flex: 1,
-            }}
+            style={{ flex: 1 }}
           >
             {children}
           </LinearGradient>
