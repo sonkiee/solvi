@@ -63,7 +63,7 @@ export default function TabsLayout() {
           backgroundColor: "transparent",
         },
         // headerTransparent: true,
-        headerShown: false,
+        // headerShown: false,
       }}
     >
       <Tabs.Screen
