@@ -27,8 +27,9 @@ export default function TabsLayout() {
           borderTopColor: "transparent",
         },
         tabBarBackground: GradientTabBarBackground,
-        tabBarInactiveTintColor: "#cccccc",
-        // tabBarActiveTintColor: "black",
+        tabBarInactiveTintColor: "#eeeeee",
+
+        tabBarActiveTintColor: "#ffffff",
       }}
     >
       <Tabs.Screen
