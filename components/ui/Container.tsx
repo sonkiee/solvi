@@ -1,6 +1,8 @@
 import { Images } from "@/constants";
 import { ImageBackground } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
+import { usePathname } from "expo-router";
+import { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 import {
   SafeAreaProvider,
@@ -9,6 +11,11 @@ import {
 
 const Container = ({ children }: { children: React.ReactNode }) => {
   const insets = useSafeAreaInsets();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    console.log("Current path:", pathname);
+  }, []);
 
   return (
     <SafeAreaProvider>
