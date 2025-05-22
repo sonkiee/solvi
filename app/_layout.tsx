@@ -9,7 +9,7 @@ export default function RootLayout() {
           headerShown: false,
         }}
       />
-      <StatusBar style="dark" />
+      <StatusBar translucent backgroundColor="transparent" style="dark" />
     </>
   );
 }

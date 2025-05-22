@@ -9,7 +9,7 @@ const Container = ({ children }: { children: React.ReactNode }) => {
     <SafeAreaProvider>
       <SafeAreaView
         style={styles.safeArea}
-        edges={["top", "bottom", "left", "right"]}
+        // edges={["top", "bottom", "left", "right"]}
       >
         <ImageBackground
           source={Images.bg}
