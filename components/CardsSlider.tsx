@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import PromoCard from "./PromoCard";
 
 const lists = [
   {
@@ -47,11 +48,7 @@ const CardsSlider = () => {
 
       <View style={styles.content}>
         {lists.map((list, index) => (
-          <View key={index} style={styles.content}>
-            <Text style={{ color: list.colors[0] }}>{list.label}</Text>
-            <Text style={{ color: list.colors[1] }}>{list.content}</Text>
-            <Text style={{ color: list.colors[2] }}>{list.icon}</Text>
-          </View>
+          <PromoCard key={index} />
         ))}
       </View>
     </View>
@@ -66,10 +63,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginVertical: 20,
+    marginHorizontal: 20,
   },
   content: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    // justifyContent: "space-between",
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 8,
