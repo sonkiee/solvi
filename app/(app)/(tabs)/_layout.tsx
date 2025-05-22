@@ -18,7 +18,15 @@ const ExchangeTabIcon = ({ color, size }: { color: string; size: number }) => (
 
 export default function TabsLayout() {
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        tabBarStyle: {
+          borderTopRightRadius: 20,
+          borderTopLeftRadius: 20,
+          borderTopColor: "transparent",
+        },
+      }}
+    >
       <Tabs.Screen
         name="home"
         options={{
@@ -77,7 +85,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
 
     borderRadius: 999,
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: "#FF9F1C",
     width: 55,
     height: 55,
@@ -86,14 +94,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "white",
     alignContent: "center",
-    // position: 'absolute',
-    // top: 15,
-    // right: 15,
-    // backgroundColor: 'white',
-    // borderRadius: 50,
-    // padding: 10,
-    // justifyContent: 'center',
-    // alignItems: 'center',
   },
   inner: {
     backgroundColor: "#FF9F1C",
