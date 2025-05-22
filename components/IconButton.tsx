@@ -10,6 +10,7 @@ const IconButton = ({
 }) => {
   return (
     <Pressable style={styles.container}>
+      {icon && icon}
       <Text
         style={{
           color: "#ccc",
