@@ -14,7 +14,7 @@ const Container = ({ children }: { children: React.ReactNode }) => {
           contentFit="cover"
         >
           <LinearGradient
-            colors={["rgba(37, 99, 235, 0.8)", "rgba(147, 51, 234, 0.0)"]}
+            colors={["rgba(147, 51, 234, 0.4)", "rgba(37, 99, 235, 0.5)"]}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
             style={{ flex: 1 }}
