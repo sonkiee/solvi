@@ -9,8 +9,10 @@ import { StyleSheet, View } from "react-native";
 
 // Fix: Rename to PascalCase
 const ExchangeTabIcon = ({ color, size }: { color: string; size: number }) => (
-  <View style={styles.exchange}>
-    <FontAwesome name="yen" color={color} size={size} />
+  <View style={styles.outer}>
+    <View style={styles.inner}>
+      <FontAwesome name="yen" color={color} size={size} />
+    </View>
   </View>
 );
 
@@ -36,6 +38,8 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="exchange"
         options={{
+          tabBarLabel: "",
+          //   tabBarShowLabel: false,
           tabBarIcon: ({ color, size }) => (
             <ExchangeTabIcon color={color} size={size} />
           ),
@@ -62,7 +66,16 @@ export default function TabsLayout() {
 }
 
 const styles = StyleSheet.create({
-  exchange: {
+  outer: {
+    borderRadius: 999,
+    borderWidth: 2,
+    borderColor: "#FF9F1C",
+    width: 45,
+    height: 45,
+    paddingHorizontal: 2,
+    paddingVertical: 2,
+    justifyContent: "center",
+    alignItems: "center",
     // position: 'absolute',
     // top: 15,
     // right: 15,
@@ -72,4 +85,5 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     // alignItems: 'center',
   },
+  inner: {},
 });
