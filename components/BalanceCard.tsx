@@ -40,5 +40,11 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     backgroundColor: "rgba(255, 255, 255, 0.2)",
   },
-  buttonContainer: {},
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    gap: 10,
+  },
 });

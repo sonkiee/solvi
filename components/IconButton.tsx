@@ -20,5 +20,7 @@ export default IconButton;
 const styles = StyleSheet.create({
   container: {
     borderRadius: 6,
+    borderWidth: 1,
+    width: "50%",
   },
 });
