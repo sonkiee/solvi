@@ -71,7 +71,7 @@ export default function TabsLayout() {
           name="home"
           options={{
             tabBarIcon: ({ color, size }) => (
-              <Feather name="home" color={color} size={size} />
+              <Feather name="home" color={color} size={20} />
             ),
           }}
         />
@@ -79,7 +79,7 @@ export default function TabsLayout() {
           name="bills"
           options={{
             tabBarIcon: ({ color, size }) => (
-              <AntDesign name="filetext1" color={color} size={size} />
+              <AntDesign name="filetext1" color={color} size={20} />
             ),
           }}
         />
@@ -97,7 +97,7 @@ export default function TabsLayout() {
           name="products"
           options={{
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="grid" color={color} size={size} />
+              <MaterialCommunityIcons name="grid" color={color} size={20} />
             ),
           }}
         />
@@ -105,7 +105,7 @@ export default function TabsLayout() {
           name="profile"
           options={{
             tabBarIcon: ({ color, size }) => (
-              <Feather name="user" color={color} size={size} />
+              <Feather name="user" color={color} size={20} />
             ),
           }}
         />
@@ -129,15 +129,15 @@ const styles = StyleSheet.create({
     borderColor: "rgba(37, 99, 235, 0.3)",
     width: 55,
     height: 55,
-    padding: 4,
+    padding: 2,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "white",
   },
   inner: {
     borderRadius: 999,
-    width: 40,
-    height: 40,
+    width: "100%",
+    height: "100%",
     justifyContent: "center",
     alignItems: "center",
     padding: 4,
