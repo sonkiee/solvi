@@ -6,9 +6,11 @@ export default function GradientTabBarBackground() {
   return (
     <LinearGradient
       colors={[
-        "#2563eb", // orange
-        "#FF5722", // deep orange
+        "#2563eb", // blue
+        "#9333ea", // purple
       ]}
+      start={{ x: 0, y: 0 }} // left
+      end={{ x: 1, y: 0 }} // right
       style={styles.tabBar}
     />
   );
@@ -25,12 +27,4 @@ const styles = StyleSheet.create({
 
 export function useBottomTabOverflow() {
   return useBottomTabBarHeight();
-}
-
-{
-  /* <BlurView
-tint="systemChromeMaterial"
-intensity={100}
-style={StyleSheet.absoluteFill}
-/> */
 }
