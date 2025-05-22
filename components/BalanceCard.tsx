@@ -1,4 +1,4 @@
-import { Feather } from "@expo/vector-icons";
+import { Feather, Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import IconButton from "./IconButton";
@@ -22,7 +22,7 @@ const BalanceCard = () => {
         {[
           {
             label: "fund",
-            icon: <Feather name="arrow-right" size={18} color="#ccc" />,
+            icon: <Ionicons name="wallet-outline" size={18} color="#ccc" />,
           },
           {
             label: "transfer",

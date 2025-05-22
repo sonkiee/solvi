@@ -37,6 +37,5 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
     flexDirection: "row",
-    gap: 10,
   },
 });
