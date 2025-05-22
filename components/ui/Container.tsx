@@ -1,19 +1,20 @@
 import { Images } from "@/constants";
 import { ImageBackground } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
-import { useSegments } from "expo-router";
 import { StyleSheet, View } from "react-native";
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
 
-const Container = ({ children }: { children: React.ReactNode }) => {
+const Container = ({
+  children,
+  top,
+}: {
+  children: React.ReactNode;
+  top?: number;
+}) => {
   const insets = useSafeAreaInsets();
-  const segment = useSegments();
-
-  const layout = segment.join("/").includes("/_layout");
-
   return (
     <SafeAreaProvider>
       <ImageBackground
@@ -31,8 +32,8 @@ const Container = ({ children }: { children: React.ReactNode }) => {
         <View
           style={{
             flex: 1,
-            // ...(layout ? {  } : {}),
-            paddingTop: insets.top,
+            ...(top ? { top } : { paddingTop: insets.top }),
+            // paddingTop: insets.top,
           }}
         >
           {children}
