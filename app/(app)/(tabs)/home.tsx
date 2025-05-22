@@ -1,12 +1,7 @@
-import Container from "@/components/ui/Container";
 import { StyleSheet, Text } from "react-native";
 
 const HomeScreen = () => {
-  return (
-    <Container>
-      <Text>HomeScreen</Text>
-    </Container>
-  );
+  return <Text>HomeScreen</Text>;
 };
 
 export default HomeScreen;
