@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 const HomeHeader = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>HomeHeader</Text>
     </View>
   );
@@ -11,4 +11,8 @@ const HomeHeader = () => {
 
 export default HomeHeader;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
