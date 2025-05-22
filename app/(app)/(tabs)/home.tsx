@@ -1,3 +1,4 @@
+import HomeHeader from "@/components/HomeHeader";
 import Container from "@/components/ui/Container";
 import { ScrollView, StyleSheet, Text } from "react-native";
 
@@ -8,6 +9,7 @@ const HomeScreen = () => {
         automaticallyAdjustContentInsets={true}
         contentInsetAdjustmentBehavior="automatic"
       >
+        <HomeHeader />
         <Text>HomeScreen</Text>
       </ScrollView>
     </Container>
