@@ -7,21 +7,44 @@ import {
 } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { Tabs } from "expo-router";
-import { StyleSheet, View } from "react-native";
+import { useEffect, useRef } from "react";
+import { Animated, StyleSheet } from "react-native";
 
-// Fix: Rename to PascalCase
-const ExchangeTabIcon = ({ color, size }: { color: string; size: number }) => (
-  <View style={styles.outer}>
-    <LinearGradient
-      colors={["#2563eb", "#9333ea"]} // left to right gradient
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 0 }}
-      style={styles.inner}
+const ExchangeTabIcon = ({ color, size }: { color: string; size: number }) => {
+  const bounceAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(bounceAnim, {
+          toValue: -6, // move up
+          duration: 400,
+          useNativeDriver: true,
+        }),
+        Animated.timing(bounceAnim, {
+          toValue: 0, // move back down
+          duration: 400,
+          useNativeDriver: true,
+        }),
+      ])
+    ).start();
+  }, []);
+
+  return (
+    <Animated.View
+      style={[styles.outer, { transform: [{ translateY: bounceAnim }] }]}
     >
-      <FontAwesome name="yen" color={color} size={size * 0.8} />
-    </LinearGradient>
-  </View>
-);
+      <LinearGradient
+        colors={["#2563eb", "#9333ea"]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 0 }}
+        style={styles.inner}
+      >
+        <FontAwesome name="yen" color={color} size={size * 0.8} />
+      </LinearGradient>
+    </Animated.View>
+  );
+};
 
 export default function TabsLayout() {
   return (
