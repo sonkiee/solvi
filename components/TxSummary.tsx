@@ -1,18 +1,35 @@
 import { currency } from "@/utils/currency";
-import { AntDesign } from "@expo/vector-icons";
+import { getStatusColor } from "@/utils/status-color";
+import { Feather } from "@expo/vector-icons";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-const TxSummary = () => {
-  const isOutgoing = true; // you can dynamically toggle this
-  const status = "completed"; // pending | completed | failed
+const TxSummary = ({
+  item,
+  isLast,
+}: {
+  isLast: boolean;
+  item: {
+    id: string;
+    description: string;
+    amount: any;
+    status: string;
+    direction: string;
+    type: string;
+  };
+}) => {
+  const isOutgoing = item.direction === "outgoing" ? true : false;
+
+  const status = item.status;
+
+  const { background, text } = getStatusColor({ status });
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, !isLast && styles.txItemBorder]}>
       {/* Left column: transaction meta */}
       <View style={styles.columnLeft}>
-        <Text style={styles.title}>RMB Purchase</Text>
-        <Text style={styles.dsc}>Wallet fund transfer</Text>
+        <Text style={styles.title}>{item.type}</Text>
+        <Text style={styles.dsc}>{item.description}</Text>
         <View style={styles.dateTimeContainer}>
           <Text style={styles.date}>May 20, 2025</Text>
           <Text style={styles.time}>12:30 PM</Text>
@@ -21,17 +38,41 @@ const TxSummary = () => {
 
       {/* Right column: transaction status + amount */}
       <View style={styles.columnRight}>
-        <AntDesign
-          name={isOutgoing ? "arrowup" : "arrowdown"}
-          size={18}
-          color={isOutgoing ? "#e74c3c" : "#27ae60"}
-        />
-        <Text
-          style={[styles.amount, { color: isOutgoing ? "#e74c3c" : "#27ae60" }]}
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: 4,
+            // marginBottom: 8,
+          }}
         >
-          {currency(isOutgoing ? -10000 : 10000)}
-        </Text>
-        <Text style={[styles.status, statusStyles[status]]}>{status}</Text>
+          <Feather
+            name={isOutgoing ? "arrow-up-right" : "arrow-down-left"}
+            size={12}
+            color={isOutgoing ? "#e74c3c" : "#27ae60"}
+          />
+          <Text
+            style={[
+              styles.amount,
+              // { color: isOutgoing ? "#e74c3c" : "#27ae60" },
+            ]}
+          >
+            {currency(isOutgoing ? item.amount : item.amount)}
+          </Text>
+        </View>
+        <View style={[styles.statusBox, { backgroundColor: background }]}>
+          <Text
+            style={[
+              styles.status,
+              {
+                color: text,
+              },
+            ]}
+          >
+            {item.status}
+          </Text>
+        </View>
       </View>
     </View>
   );
@@ -45,10 +86,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingVertical: 16,
-    paddingHorizontal: 16,
+    paddingHorizontal: 10,
     backgroundColor: "#fff",
-    borderBottomWidth: 1,
-    borderColor: "#f0f0f0",
   },
   columnLeft: {
     flexDirection: "column",
@@ -89,6 +128,16 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "500",
     textTransform: "capitalize",
+  },
+  txItemBorder: {
+    borderBottomWidth: 1,
+    borderColor: "#f0f0f0",
+  },
+  statusBox: {
+    padding: 3,
+    // paddingHorizontal: 6,
+    borderRadius: 6,
+    // alignSelf: "flex-start",
   },
 });
 

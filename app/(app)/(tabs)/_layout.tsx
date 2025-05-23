@@ -1,4 +1,3 @@
-import Container from "@/components/ui/Container";
 import GradientTabBarBackground from "@/components/ui/TabBarBackground";
 import {
   AntDesign,
@@ -49,75 +48,73 @@ const ExchangeTabIcon = ({ color, size }: { color: string; size: number }) => {
 
 export default function TabsLayout() {
   return (
-    <Container>
-      <Tabs
-        screenOptions={{
-          tabBarStyle: {
-            borderTopRightRadius: 20,
-            borderTopLeftRadius: 20,
-            borderTopColor: "transparent",
-          },
-          tabBarBackground: GradientTabBarBackground,
-          tabBarInactiveTintColor: "#eeeeee",
-          tabBarActiveTintColor: "#ffffff",
-          headerStyle: {
-            backgroundColor: "transparent",
-          },
-          // headerTransparent: true,
-          // headerShown: false,
+    <Tabs
+      screenOptions={{
+        tabBarStyle: {
+          borderTopRightRadius: 20,
+          borderTopLeftRadius: 20,
+          borderTopColor: "transparent",
+        },
+        tabBarBackground: GradientTabBarBackground,
+        tabBarInactiveTintColor: "#eeeeee",
+        tabBarActiveTintColor: "#ffffff",
+        headerStyle: {
+          backgroundColor: "transparent",
+        },
+        // headerTransparent: true,
+        // headerShown: false,
+      }}
+    >
+      <Tabs.Screen
+        name="home"
+        options={{
+          headerShown: false,
+          title: "Home",
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="home" color={color} size={20} />
+          ),
         }}
-      >
-        <Tabs.Screen
-          name="home"
-          options={{
-            headerShown: false,
-            title: "Home",
-            tabBarIcon: ({ color, size }) => (
-              <Feather name="home" color={color} size={20} />
-            ),
-          }}
-        />
-        <Tabs.Screen
-          name="bills"
-          options={{
-            title: "Bills",
-            tabBarIcon: ({ color, size }) => (
-              <AntDesign name="filetext1" color={color} size={20} />
-            ),
-          }}
-        />
-        <Tabs.Screen
-          name="exchange"
-          options={{
-            tabBarLabel: "",
-            //   tabBarShowLabel: false,
-            title: "Exchange",
-            tabBarIcon: ({ color, size }) => (
-              <ExchangeTabIcon color={color} size={size} />
-            ),
-          }}
-        />
-        <Tabs.Screen
-          name="products"
-          options={{
-            title: "Products",
+      />
+      <Tabs.Screen
+        name="bills"
+        options={{
+          title: "Bills",
+          tabBarIcon: ({ color, size }) => (
+            <AntDesign name="filetext1" color={color} size={20} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="exchange"
+        options={{
+          tabBarLabel: "",
+          //   tabBarShowLabel: false,
+          title: "Exchange",
+          tabBarIcon: ({ color, size }) => (
+            <ExchangeTabIcon color={color} size={size} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="products"
+        options={{
+          title: "Products",
 
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="grid" color={color} size={20} />
-            ),
-          }}
-        />
-        <Tabs.Screen
-          name="profile"
-          options={{
-            title: "Profile",
-            tabBarIcon: ({ color, size }) => (
-              <Feather name="user" color={color} size={20} />
-            ),
-          }}
-        />
-      </Tabs>
-    </Container>
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="grid" color={color} size={20} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Profile",
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="user" color={color} size={20} />
+          ),
+        }}
+      />
+    </Tabs>
   );
 }
 

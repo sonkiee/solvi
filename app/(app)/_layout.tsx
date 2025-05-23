@@ -1,18 +1,27 @@
+import Container from "@/components/ui/Container";
 import { Stack } from "expo-router";
 
 const AppLayout = () => {
   return (
-    <Stack>
-      <Stack.Screen
-        name="(tabs)"
-        options={{
-          headerShown: false,
-          contentStyle: {
-            backgroundColor: "transparent",
-          },
-        }}
-      />
-    </Stack>
+    <Container>
+      <Stack>
+        <Stack.Screen
+          name="(tabs)"
+          options={{
+            headerShown: false,
+            contentStyle: {
+              backgroundColor: "transparent",
+            },
+          }}
+        />
+        <Stack.Screen
+          name="transactions"
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack>
+    </Container>
   );
 };
 

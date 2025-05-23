@@ -1,9 +1,12 @@
+import { transactions } from "@/constants";
 import { Entypo } from "@expo/vector-icons";
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { router } from "expo-router";
+import React, { useState } from "react";
+import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import TxSummary from "./TxSummary";
 
 const TransactionsContainer = () => {
+  const [toggle, setToggle] = useState<boolean>(false);
   return (
     <>
       <View style={styles.container}>
@@ -14,20 +17,39 @@ const TransactionsContainer = () => {
             </Text>
           </View>
 
-          <View style={styles.moreWrapper}>
-            <Text style={styles.more}>view all</Text>
-            <Entypo name="chevron-small-down" size={20} color="#333" />
-          </View>
+          <TouchableOpacity
+            style={styles.moreWrapper}
+            activeOpacity={0.5}
+            onPress={() => setToggle((prev) => !prev)}
+          >
+            <Text style={styles.more}>{toggle ? "view less" : "view all"}</Text>
+            <Entypo
+              name={toggle ? "chevron-small-up" : "chevron-small-down"}
+              size={20}
+              color="#333"
+            />
+          </TouchableOpacity>
         </View>
 
-        <View style={styles.content}>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
-            <TxSummary key={index} />
-          ))}
+        <View style={[styles.content]}>
+          {transactions
+            .slice(0, toggle ? transactions.length : 5)
+            .map((item, index, arr) => (
+              <TxSummary
+                key={index}
+                item={item}
+                isLast={index === arr.length - 1}
+              />
+            ))}
         </View>
       </View>
 
-      <Text style={{ color: "white" }}> View All Transaction</Text>
+      <View style={{ marginBottom: 50 }}>
+        <Button
+          title="View All Transaction"
+          onPress={() => router.push("/transactions")}
+        />
+      </View>
     </>
   );
 };
@@ -40,8 +62,6 @@ const styles = StyleSheet.create({
     margin: 10,
     marginBottom: 30,
     flex: 1,
-
-    // height: 400,
   },
   header: {
     backgroundColor: "#f5f5f5",
