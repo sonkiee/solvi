@@ -90,6 +90,7 @@ export default function TabsLayout() {
           tabBarLabel: "",
           //   tabBarShowLabel: false,
           title: "Exchange",
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <ExchangeTabIcon color={color} size={size} />
           ),

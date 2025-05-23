@@ -14,3 +14,7 @@ export const currency = (
     maximumFractionDigits: options.maximumFractionDigits || 2,
   }).format(amount || 0);
 };
+
+export const formatCurrency = (value: number, currency: { symbol: string }) => {
+  return `${currency.symbol}${value.toFixed(2)}`;
+};
