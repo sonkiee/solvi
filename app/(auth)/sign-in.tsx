@@ -32,7 +32,7 @@ const SigninScreen = () => {
 
           <Button
             title="Sign In"
-            onPress={() => router.navigate("/(app)/(tabs)/home")}
+            onPress={() => router.replace("/(app)/(tabs)/home")}
             gradient
           />
 
