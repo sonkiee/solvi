@@ -1,14 +1,23 @@
 import { Entypo } from "@expo/vector-icons";
 import { router } from "expo-router";
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  StyleProp,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from "react-native";
 
 export const Containing = ({
   children,
   row,
+  style,
 }: {
   children: React.ReactNode;
   row: boolean;
+  style: StyleProp<ViewStyle>;
 }) => {
   return (
     <View
@@ -19,6 +28,7 @@ export const Containing = ({
           justifyContent: "space-between",
           alignItems: "center",
         },
+        style,
       ]}
     >
       {children}
