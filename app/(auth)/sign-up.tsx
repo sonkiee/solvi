@@ -90,7 +90,11 @@ const SignupScreen = () => {
                 icon={<Octicons name="lock" size={22} color="#aaa" />}
               />
 
-              <Button title="Sign Up" gradient />
+              <Button
+                title="Sign Up"
+                onPress={() => router.navigate("/(app)/(tabs)/home")}
+                gradient
+              />
 
               <View style={styles.footer}>
                 <View style={styles.footerRow}>

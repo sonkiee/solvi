@@ -27,11 +27,14 @@ const SigninScreen = () => {
             title="Password"
             placeholder="Password"
             secureTextEntry
-            onPress={() => router.navigate("/(app)/(tabs)/home")}
             icon={<Octicons name="lock" size={22} color="white" />}
           />
 
-          <Button title="Sign In" gradient />
+          <Button
+            title="Sign In"
+            onPress={() => router.navigate("/(app)/(tabs)/home")}
+            gradient
+          />
 
           <View style={styles.footer}>
             <View
