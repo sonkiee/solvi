@@ -25,7 +25,7 @@ const BalanceCard = () => {
           Wallet Balance
         </Text>
         <TouchableOpacity onPress={() => setBalance((prev) => !prev)}>
-          <Feather name="eye-off" size={18} color="#eee" />
+          <Feather name={balance ? "eye-off" : "eye"} size={18} color="#eee" />
         </TouchableOpacity>
       </View>
       <Text style={styles.balance}>{balance ? currency(10000) : "******"}</Text>
