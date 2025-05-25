@@ -8,7 +8,9 @@ export default function RootLayout() {
         screenOptions={{
           headerShown: false,
         }}
-      ></Stack>
+      >
+        <Stack.Screen name="(auth)" />
+      </Stack>
 
       <StatusBar translucent backgroundColor="transparent" style="auto" />
     </>
