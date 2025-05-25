@@ -20,12 +20,21 @@ const TransferScreen = () => {
           <View style={styles.content}>
             <Text style={styles.label}> Transfer Deatils</Text>
 
-            <TextInput title="Recipient's Address" placeholder="Eneter" />
+            <TextInput
+              title="Recipient's Address"
+              placeholder="Eneter"
+              style={{
+                backgroundColor: "#fff",
+              }}
+              container={{ backgroundColor: "#fff" }}
+              icon={<Feather name="user" size={19} color="#aaa" />}
+            />
 
             <TextInput
               title="Recipient's Address"
               placeholder="Enter amount"
-              icon={<Feather name="credit-card" size={20} color="#aaa" />}
+              container={{ backgroundColor: "#fff" }}
+              icon={<Feather name="credit-card" size={18} color="#aaa" />}
             />
           </View>
         </View>
@@ -56,6 +65,7 @@ const styles = StyleSheet.create({
     padding: 16,
     marginTop: 16,
     marginBottom: 24,
+    gap: 12,
   },
   label: {
     fontSize: 16,
