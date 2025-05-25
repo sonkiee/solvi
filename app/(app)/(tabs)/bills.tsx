@@ -1,7 +1,12 @@
+import Container from "@/components/ui/Container";
 import { Text } from "react-native";
 
 const BillsScreen = () => {
-  return <Text> Bills</Text>;
+  return (
+    <Container>
+      <Text> Bills</Text>
+    </Container>
+  );
 };
 
 export default BillsScreen;

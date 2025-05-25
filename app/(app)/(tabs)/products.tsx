@@ -1,11 +1,14 @@
+import Container from "@/components/ui/Container";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 const ProductsScreen = () => {
   return (
-    <View>
-      <Text>products</Text>
-    </View>
+    <Container>
+      <View>
+        <Text>products</Text>
+      </View>
+    </Container>
   );
 };
 
