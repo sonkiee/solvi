@@ -1,21 +1,25 @@
 import { AntDesign, Feather } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
+import { router } from "expo-router";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import BalanceCard from "./BalanceCard";
 
 const HomeHeader = () => {
   return (
     <BlurView intensity={80} tint="dark" style={styles.container}>
       <View style={styles.actionContainer}>
-        <Feather name="bell" size={18} color="#fff" />
+        <TouchableOpacity onPress={() => router.navigate("/transactions")}>
+          <Feather name="bell" size={18} color="#fff" />
+        </TouchableOpacity>
         <View style={styles.iconGroup}>
           <AntDesign name="questioncircleo" size={20} color="#fff" />
-          <View
+          <TouchableOpacity
+            onPress={() => router.navigate("/(app)/(tabs)/profile")}
             style={{ backgroundColor: "white", padding: 4, borderRadius: 999 }}
           >
             <Feather name="user" size={24} color="#9333ea" />
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
 
