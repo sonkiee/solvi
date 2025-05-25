@@ -2,6 +2,7 @@ import { Containing, HeaderBack } from "@/components/Reusables";
 import Container from "@/components/ui/Container";
 import TextInput from "@/components/ui/Input";
 import { currency } from "@/utils/currency";
+import { Feather } from "@expo/vector-icons";
 import { StyleSheet, Text, View } from "react-native";
 
 const TransferScreen = () => {
@@ -19,9 +20,13 @@ const TransferScreen = () => {
           <View style={styles.content}>
             <Text style={styles.label}> Transfer Deatils</Text>
 
-            <TextInput title="Recipient's Address" />
+            <TextInput title="Recipient's Address" placeholder="Eneter" />
 
-            <TextInput title="Recipient's Address" />
+            <TextInput
+              title="Recipient's Address"
+              placeholder="Enter amount"
+              icon={<Feather name="credit-card" size={20} color="#aaa" />}
+            />
           </View>
         </View>
       </View>
@@ -47,7 +52,7 @@ const styles = StyleSheet.create({
   },
   content: {
     borderRadius: 8,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#aaa",
     padding: 16,
     marginTop: 16,
     marginBottom: 24,
