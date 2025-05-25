@@ -1,7 +1,18 @@
-import { StyleSheet, Text } from "react-native";
+import { Entypo } from "@expo/vector-icons";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-export const Containing = () => {
-  return <Text>Contain</Text>;
+export const Containing = ({ children }: { children: React.ReactNode }) => {
+  return <View style={styles.containing}>{children}</View>;
+};
+
+export const HeaderBack = () => {
+  return (
+    <View style={styles.headerBack}>
+      <Entypo name="chevron-thin-left" size={16} color="white" />
+      <Text style={styles.title}>Currency Exchange</Text>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -14,4 +25,15 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     marginTop: 12,
   },
+  headerBack: {
+    borderBottomColor: "#aaa",
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    gap: 12,
+  },
+  title: { fontSize: 16, fontWeight: "600", color: "white" },
 });
