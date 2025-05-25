@@ -10,10 +10,20 @@ export const Containing = ({ children }: { children: React.ReactNode }) => {
 export const HeaderBack = ({ title }: { title: string }) => {
   return (
     <View style={styles.headerBack}>
-      <TouchableOpacity onPress={() => router.back()}>
+      <TouchableOpacity
+        onPress={() => router.back()}
+        style={{
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 8,
+          paddingHorizontal: 8,
+          paddingVertical: 2,
+        }}
+      >
         <Entypo name="chevron-thin-left" size={16} color="white" />
+        <Text style={styles.title}>{title ?? "title text"}</Text>
       </TouchableOpacity>
-      <Text style={styles.title}>{title ?? "title text"}</Text>
     </View>
   );
 };
