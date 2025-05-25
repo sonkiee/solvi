@@ -20,6 +20,12 @@ const AppLayout = () => {
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="transfer"
+          options={{
+            headerShown: false,
+          }}
+        />
       </Stack>
     </Container>
   );
