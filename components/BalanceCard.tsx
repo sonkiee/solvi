@@ -5,11 +5,12 @@ import {
   Ionicons,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import IconButton from "./IconButton";
 
 const BalanceCard = () => {
+  const [balance, setBalance] = useState(false);
   return (
     <View style={styles.container}>
       <View
@@ -23,9 +24,11 @@ const BalanceCard = () => {
         <Text style={{ color: "#eee", fontWeight: "600", fontSize: 16 }}>
           Wallet Balance
         </Text>
-        <Feather name="eye-off" size={18} color="#eee" />
+        <TouchableOpacity onPress={() => setBalance((prev) => !prev)}>
+          <Feather name="eye-off" size={18} color="#eee" />
+        </TouchableOpacity>
       </View>
-      <Text style={styles.balance}>{currency(10000)}</Text>
+      <Text style={styles.balance}>{balance ? currency(10000) : "******"}</Text>
       <View style={styles.buttonContainer}>
         {[
           {
