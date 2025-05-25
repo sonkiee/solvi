@@ -9,6 +9,7 @@ export default function RootLayout() {
           headerShown: false,
         }}
       >
+        <Stack.Screen name="(app)" />
         <Stack.Screen name="(auth)" />
       </Stack>
 
