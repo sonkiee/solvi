@@ -1,11 +1,14 @@
+import Container from "@/components/ui/Container";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 const ProfileScreen = () => {
   return (
-    <View>
-      <Text>ProfileScreen</Text>
-    </View>
+    <Container>
+      <View>
+        <Text>ProfileScreen</Text>
+      </View>
+    </Container>
   );
 };
 

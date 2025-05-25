@@ -1,3 +1,4 @@
+import { RelativePathString, router } from "expo-router";
 import React from "react";
 import { Pressable, StyleSheet, Text } from "react-native";
 
@@ -5,14 +6,17 @@ const IconButton = ({
   title = "button",
   icon,
   index,
+  link,
 }: {
   title: string;
   icon?: React.ReactElement;
   index: number;
+  link: RelativePathString;
 }) => {
   return (
     <Pressable
       style={[styles.container, index === 0 && { backgroundColor: "#ccc" }]}
+      onPress={() => router.navigate(`${link}`)}
     >
       {icon && icon}
       <Text

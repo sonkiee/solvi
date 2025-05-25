@@ -33,10 +33,12 @@ const BalanceCard = () => {
         {[
           {
             label: "fund",
+            link: "fund",
             icon: <Ionicons name="wallet-outline" size={18} color="purple" />,
           },
           {
             label: "transfer",
+            link: "transfer",
             icon: (
               <FontAwesome6
                 name="arrow-right-arrow-left"
@@ -47,6 +49,8 @@ const BalanceCard = () => {
           },
           {
             label: "history",
+            link: "transactions",
+
             icon: (
               <MaterialCommunityIcons name="history" size={18} color="#ccc" />
             ),
@@ -57,6 +61,7 @@ const BalanceCard = () => {
             index={index}
             title={button.label}
             icon={button.icon}
+            link={button.link}
           />
         ))}
       </View>
