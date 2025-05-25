@@ -1,16 +1,19 @@
 import { Entypo } from "@expo/vector-icons";
+import { router } from "expo-router";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export const Containing = ({ children }: { children: React.ReactNode }) => {
   return <View style={styles.containing}>{children}</View>;
 };
 
-export const HeaderBack = () => {
+export const HeaderBack = ({ title }: { title: string }) => {
   return (
     <View style={styles.headerBack}>
-      <Entypo name="chevron-thin-left" size={16} color="white" />
-      <Text style={styles.title}>Currency Exchange</Text>
+      <TouchableOpacity onPress={() => router.back()}>
+        <Entypo name="chevron-thin-left" size={16} color="white" />
+      </TouchableOpacity>
+      <Text style={styles.title}>{title ?? "title text"}</Text>
     </View>
   );
 };
@@ -32,7 +35,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingVertical: 16,
     gap: 12,
   },
   title: { fontSize: 16, fontWeight: "600", color: "white" },
