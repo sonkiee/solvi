@@ -22,6 +22,7 @@ interface TextInputProps extends RNTextInputProps {
   containerStyle?: StyleProp<ViewStyle>;
   textInputStyle?: StyleProp<TextStyle>;
   container?: StyleProp<ViewStyle>;
+  label?: StyleProp<TextStyle>;
 }
 
 const TextInput = ({
@@ -34,6 +35,7 @@ const TextInput = ({
   secureTextEntry: secureProp,
   container,
   onChangeText,
+  label,
   ...rest
 }: TextInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -45,7 +47,7 @@ const TextInput = ({
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={containerStyle}>
-        {title && <Text style={styles.label}>{title}</Text>}
+        {title && <Text style={[styles.label, label]}>{title}</Text>}
         <View
           style={[
             styles.inputContainer,

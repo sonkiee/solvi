@@ -1,15 +1,20 @@
 import { Containing, HeaderBack } from "@/components/Reusables";
+import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import TextInput from "@/components/ui/Input";
 import { currency } from "@/utils/currency";
 import { Feather } from "@expo/vector-icons";
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 const TransferScreen = () => {
   return (
     <Container top={1}>
       <HeaderBack title={"Tranfer Funds"} />
-      <View style={styles.container}>
+      <ScrollView
+        style={styles.container}
+        contentInsetAdjustmentBehavior="automatic"
+        keyboardDismissMode="on-drag"
+      >
         <View>
           <Containing>
             <Text style={styles.text}>Available Balance:</Text>
@@ -21,24 +26,28 @@ const TransferScreen = () => {
             <Text style={styles.label}> Transfer Deatils</Text>
 
             <TextInput
-              title="Recipient's Address"
-              placeholder="Eneter"
+              title="Recipient"
+              placeholder="Enter recipient's name or ID"
               style={{
                 backgroundColor: "#fff",
               }}
+              label={{ color: "#333" }}
               container={{ backgroundColor: "#fff" }}
               icon={<Feather name="user" size={19} color="#aaa" />}
             />
 
             <TextInput
-              title="Recipient's Address"
+              title="Amount"
               placeholder="Enter amount"
               container={{ backgroundColor: "#fff" }}
+              label={{ color: "#333" }}
               icon={<Feather name="credit-card" size={18} color="#aaa" />}
             />
+
+            <Button title="Transfer funds" gradient />
           </View>
         </View>
-      </View>
+      </ScrollView>
     </Container>
   );
 };
@@ -65,7 +74,7 @@ const styles = StyleSheet.create({
     padding: 16,
     marginTop: 16,
     marginBottom: 24,
-    gap: 12,
+    gap: 16,
   },
   label: {
     fontSize: 16,
