@@ -3,8 +3,27 @@ import { router } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export const Containing = ({ children }: { children: React.ReactNode }) => {
-  return <View style={styles.containing}>{children}</View>;
+export const Containing = ({
+  children,
+  row,
+}: {
+  children: React.ReactNode;
+  row: boolean;
+}) => {
+  return (
+    <View
+      style={[
+        styles.containing,
+        row && {
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+        },
+      ]}
+    >
+      {children}
+    </View>
+  );
 };
 
 export const HeaderBack = ({ title }: { title: string }) => {
