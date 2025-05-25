@@ -1,13 +1,15 @@
 import Container from "@/components/ui/Container";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 const ProfileScreen = () => {
   return (
-    <Container>
-      <View>
-        <Text>ProfileScreen</Text>
-      </View>
+    <Container top={1}>
+      <ScrollView contentInsetAdjustmentBehavior="always">
+        <View>
+          <Text>ProfileScreen</Text>
+        </View>
+      </ScrollView>
     </Container>
   );
 };
