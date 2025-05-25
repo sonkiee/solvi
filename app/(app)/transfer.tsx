@@ -25,6 +25,7 @@ const TransferScreen = () => {
           style={styles.container}
           contentInsetAdjustmentBehavior="automatic"
           keyboardShouldPersistTaps="handled"
+          keyboardDismissMode="interactive"
         >
           <View>
             <Containing>
