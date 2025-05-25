@@ -8,8 +8,6 @@ const ProfileLayout = () => {
         options={{
           headerTitle: "Profile",
           headerShown: false,
-          //   headerTransparent: true,
-          //   headerLargeTitle: true,
         }}
       />
       {/* Add other screens here */}
