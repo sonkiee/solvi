@@ -1,3 +1,4 @@
+import { Containing } from "@/components/Reusables";
 import Container from "@/components/ui/Container";
 import React from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
@@ -6,8 +7,17 @@ const ProfileScreen = () => {
   return (
     <Container top={1}>
       <ScrollView contentInsetAdjustmentBehavior="always">
-        <View>
+        <View style={styles.container}>
           <Text>ProfileScreen</Text>
+          <Containing>
+            <View>
+              <Text> sss</Text>
+              <View>
+                <Text> nmae</Text>
+                <Text> email </Text>
+              </View>
+            </View>
+          </Containing>
         </View>
       </ScrollView>
     </Container>
@@ -16,4 +26,6 @@ const ProfileScreen = () => {
 
 export default ProfileScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: { paddingHorizontal: 10 },
+});

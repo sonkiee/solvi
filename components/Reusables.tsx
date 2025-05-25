@@ -16,18 +16,20 @@ export const Containing = ({
   style,
 }: {
   children: React.ReactNode;
-  row: boolean;
+  row?: boolean;
   style: StyleProp<ViewStyle>;
 }) => {
   return (
     <View
       style={[
         styles.containing,
-        row && {
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-        },
+        row
+          ? {
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }
+          : {},
         style,
       ]}
     >
