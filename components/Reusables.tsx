@@ -17,7 +17,7 @@ export const Containing = ({
 }: {
   children: React.ReactNode;
   row?: boolean;
-  style: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>;
 }) => {
   return (
     <View
