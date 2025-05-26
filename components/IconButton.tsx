@@ -10,24 +10,24 @@ const IconButton = ({
 }: {
   title: string;
   icon?: React.ReactElement;
-  index: number;
+  index?: number;
   link: RelativePathString;
 }) => {
+  // TO DO
+  // make dynamic, bg, border and the rest
   return (
     <Pressable
-      style={[styles.container, index === 0 && { backgroundColor: "#ccc" }]}
+      style={[
+        styles.container,
+        index === 0 && { backgroundColor: "#ccc" },
+        {
+          backgroundColor: "rgba(255, 255, 255, 0.1)",
+        },
+      ]}
       onPress={() => router.navigate(`${link}`)}
     >
       {icon && icon}
-      <Text
-        style={[
-          {
-            color: "#ccc",
-            textTransform: "capitalize",
-          },
-          index === 0 && { color: "purple" },
-        ]}
-      >
+      <Text style={[styles.text, index === 0 && { color: "purple" }]}>
         {title}
       </Text>
     </Pressable>
@@ -38,15 +38,19 @@ export default IconButton;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1, // 👈 Make it take available space
     borderRadius: 6,
     borderWidth: 1,
     borderColor: "#cccccc",
-    width: 120 * 0.8,
-    paddingHorizontal: 5,
+    paddingHorizontal: 12,
     paddingVertical: 8,
-    justifyContent: "space-around",
-    alignContent: "center",
+    justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
+    gap: 8,
+  },
+  text: {
+    color: "#ccc",
+    textTransform: "capitalize",
   },
 });
