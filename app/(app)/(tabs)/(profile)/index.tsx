@@ -13,8 +13,8 @@ const ProfileScreen = () => {
             <View>
               <Text> sss</Text>
               <View>
-                <Text> nmae</Text>
-                <Text> email </Text>
+                <Text style={styles.nameText}> sonkey lala</Text>
+                <Text style={styles.emailText}> email </Text>
               </View>
             </View>
           </Containing>
@@ -28,4 +28,10 @@ export default ProfileScreen;
 
 const styles = StyleSheet.create({
   container: { paddingHorizontal: 10 },
+  nameText: {
+    fontSize: 18,
+    fontWeight: "600",
+    color: "#aaa",
+  },
+  emailText: {},
 });
