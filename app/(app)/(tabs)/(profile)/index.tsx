@@ -1,12 +1,122 @@
 import IconButton from "@/components/IconButton";
-import { Containing } from "@/components/Reusables";
+import ProfileListItem from "@/components/ProfileListItem";
+import { Containing, SegmentedControl } from "@/components/Reusables";
 import Container from "@/components/ui/Container";
-import { Feather } from "@expo/vector-icons";
+import { currency } from "@/utils/currency";
+import {
+  Feather,
+  Fontisto,
+  Ionicons,
+  MaterialCommunityIcons,
+  Octicons,
+} from "@expo/vector-icons";
 import { RelativePathString } from "expo-router";
-import React from "react";
+import React, { useState } from "react";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 
+const ICON_COLOR = "#4f2986";
+const ICON_SIZE = 20;
+
+const tabs = [
+  { key: "account", label: "Account" },
+  { key: "wallet", label: "Wallet" },
+  { key: "security", label: "Security" },
+];
+
+const account = [
+  {
+    key: "",
+    label: "Personal details",
+    linkTo: "",
+    icon: <Feather name="user" size={ICON_SIZE} color={ICON_COLOR} />,
+  },
+  {
+    key: "",
+    label: "business details",
+    linkTo: "",
+    icon: (
+      <Ionicons name="business-outline" size={ICON_SIZE} color={ICON_COLOR} />
+    ),
+  },
+  {
+    key: "",
+    label: "kyc and verification",
+    linkTo: "",
+    icon: <Octicons name="verified" size={ICON_SIZE} color={ICON_COLOR} />,
+  },
+  {
+    key: "",
+    label: "bank details",
+    linkTo: "",
+    icon: <Feather name="credit-card" size={ICON_SIZE} color={ICON_COLOR} />,
+  },
+  {
+    key: "",
+    label: "user id",
+    linkTo: "",
+    icon: <Feather name="user" size={24} color={ICON_COLOR} />,
+  },
+];
+
+const wallet = [
+  {
+    key: "",
+    label: "Manage cards",
+    linkTo: "",
+    icon: <Feather name="credit-card" size={ICON_SIZE} color={ICON_COLOR} />,
+  },
+  {
+    key: "",
+    label: "Default currency",
+    linkTo: "",
+    icon: <Fontisto name="money-symbol" size={ICON_SIZE} color={ICON_COLOR} />,
+  },
+  {
+    key: "",
+    label: "refer and earn",
+    linkTo: "",
+    icon: <Ionicons name="gift-outline" size={ICON_SIZE} color={ICON_COLOR} />,
+  },
+];
+
+const security = [
+  {
+    key: "change-password",
+    label: "change password",
+    linkTo: "",
+    icon: <Feather name="user" size={ICON_SIZE} color={ICON_COLOR} />,
+  },
+  {
+    key: "2fa",
+    label: "two-factor authentication",
+    linkTo: "",
+    icon: (
+      <MaterialCommunityIcons
+        name="two-factor-authentication"
+        size={ICON_SIZE}
+        color={ICON_COLOR}
+      />
+    ),
+  },
+  {
+    key: "manage-biometrics",
+    label: "manage biometrics",
+    linkTo: "",
+    icon: (
+      <MaterialCommunityIcons
+        name="fingerprint"
+        size={ICON_SIZE}
+        color={ICON_COLOR}
+      />
+    ),
+  },
+];
+
+type TabKey = "account" | "wallet" | "security";
+
 const ProfileScreen = () => {
+  const [selectedTab, setSelectedTab] = useState<TabKey>("account");
+
   const user = {
     name: "Sonkey Lala",
     email: "sonkey@example.com",
@@ -18,13 +128,17 @@ const ProfileScreen = () => {
     .map((word) => word[0])
     .join("")
     .toUpperCase();
-  console.log(abbr);
 
   return (
     <Container top={1}>
-      <ScrollView contentInsetAdjustmentBehavior="always">
+      <ScrollView
+        contentInsetAdjustmentBehavior="always"
+        contentContainerStyle={{
+          marginBottom: 40,
+          paddingBottom: 40,
+        }}
+      >
         <View style={styles.container}>
-          <Text>ProfileScreen</Text>
           <Containing>
             <View
               style={{
@@ -64,12 +178,16 @@ const ProfileScreen = () => {
               {[
                 {
                   label: "edit profile",
-                  icon: <Feather name="settings" size={20} color="#aaa" />,
+                  icon: (
+                    <Feather name="settings" size={ICON_SIZE} color="#aaa" />
+                  ),
                   link: "/share-profile",
                 },
                 {
                   label: "share profile",
-                  icon: <Feather name="share-2" size={20} color="#aaa" />,
+                  icon: (
+                    <Feather name="share-2" size={ICON_SIZE} color="#aaa" />
+                  ),
                   link: "/messages",
                 },
               ].map((item, index) => (
@@ -84,12 +202,97 @@ const ProfileScreen = () => {
           </Containing>
 
           <View
-            style={{ flexDirection: "row", gap: 12, width: "100%", flex: 1 }}
+            style={{ flexDirection: "row", gap: 10, width: "100%", flex: 1 }}
           >
-            {["notifications", "rewards", "balance"].map((section, index) => (
-              <Containing key={index}>
-                <Text>{section}</Text>
+            {[
+              {
+                label: "notifications",
+                icon: <Feather name="bell" size={ICON_SIZE} color="#aaa" />,
+                link: "",
+                number: 3,
+              },
+              {
+                label: "rewards",
+                icon: (
+                  <Ionicons name="gift-outline" size={ICON_SIZE} color="#aaa" />
+                ),
+                link: "",
+                number: 250,
+              },
+              {
+                label: "balance",
+                icon: (
+                  <Ionicons
+                    name="wallet-outline"
+                    size={ICON_SIZE}
+                    color="#aaa"
+                  />
+                ),
+                link: "",
+                number: 1000,
+              },
+            ].map((section, index) => (
+              <Containing key={index} style={{ gap: 2 }}>
+                {section.icon}
+                <Text style={styles.text}>{section.label}</Text>
+                <Text style={styles.number}>{currency(section.number)}</Text>
               </Containing>
+            ))}
+          </View>
+
+          <View>
+            <SegmentedControl
+              tabs={tabs}
+              selectedTab={selectedTab}
+              onTabChange={(key: TabKey) => setSelectedTab(key)}
+            />
+          </View>
+
+          <View
+            style={{
+              backgroundColor: "#f5f5f5",
+              borderRadius: 6,
+              padding: 10,
+              marginTop: 10,
+            }}
+          >
+            {(selectedTab === "account"
+              ? account
+              : selectedTab === "wallet"
+              ? wallet
+              : security
+            ).map((item, index) => (
+              <ProfileListItem
+                key={index}
+                label={item.label}
+                icon={item.icon}
+              />
+            ))}
+          </View>
+
+          <View
+            style={{
+              backgroundColor: "#f5f5f5",
+              borderRadius: 6,
+              // padding: 10,
+              marginTop: 10,
+            }}
+          >
+            {[
+              {
+                key: "",
+                label: "Delete account",
+                linkTo: "",
+                icon: (
+                  <Feather name="trash-2" size={ICON_SIZE} color={ICON_COLOR} />
+                ),
+              },
+            ].map((item, index) => (
+              <ProfileListItem
+                key={index}
+                label={item.label}
+                icon={item.icon}
+              />
             ))}
           </View>
         </View>
@@ -101,7 +304,7 @@ const ProfileScreen = () => {
 export default ProfileScreen;
 
 const styles = StyleSheet.create({
-  container: { paddingHorizontal: 10 },
+  container: { paddingHorizontal: 10, gap: 8 },
   nameText: {
     fontSize: 18,
     fontWeight: "600",
@@ -129,5 +332,21 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255, 255, 255, 0.3)",
     padding: 8,
     borderRadius: 9999,
+  },
+  number: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#aaa",
+  },
+  text: {
+    fontSize: 14,
+    color: "#aaa",
+    textTransform: "capitalize",
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: "600",
+    marginBottom: 10,
+    color: "#444",
   },
 });
