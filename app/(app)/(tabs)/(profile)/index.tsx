@@ -10,7 +10,11 @@ const ProfileScreen = () => {
     // avatar: require("@/assets/images/avatar.png"),
   };
 
-  const abbr = user.name.split("", 1).join("");
+  const abbr = user.name
+    .split(" ")
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
   console.log(abbr);
   return (
     <Container top={1}>
