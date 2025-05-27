@@ -1,6 +1,7 @@
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import TextInput from "@/components/ui/Input";
+import RadioButtonGroup from "@/components/ui/RadioButton";
 import React from "react";
 import {
   KeyboardAvoidingView,
@@ -11,7 +12,8 @@ import {
   View,
 } from "react-native";
 
-const PersonalDetailsScreen = () => {
+const BusinessDetailsScreen = () => {
+  const [registered, setIsregistered] = React.useState(false);
   return (
     <Container top={1}>
       <KeyboardAvoidingView
@@ -23,7 +25,7 @@ const PersonalDetailsScreen = () => {
           contentInsetAdjustmentBehavior="automatic"
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
-          keyboardDismissMode="on-drag"
+          //   keyboardDismissMode="on-drag"
           style={{
             paddingBottom: 40,
           }}
@@ -36,26 +38,21 @@ const PersonalDetailsScreen = () => {
 
           <View style={styles.formGroup}>
             <TextInput
-              title="First Name"
+              title="Business Name"
               placeholder="Enter your first name"
               label={{ color: "#333" }}
               container={{ backgroundColor: "#fff", borderColor: "#ccc" }}
             />
+
             <TextInput
-              title="Last Name"
-              placeholder="Enter your last name"
-              label={{ color: "#333" }}
-              container={{ backgroundColor: "#fff", borderColor: "#ccc" }}
-            />
-            <TextInput
-              title="Email"
+              title="Email Address"
               keyboardType="email-address"
               placeholder="john.doe@example.com"
               label={{ color: "#333" }}
               container={{ backgroundColor: "#fff", borderColor: "#ccc" }}
             />
             <TextInput
-              title="Phone Number"
+              title="Business category"
               placeholder="08150215728"
               label={{ color: "#333" }}
               container={{ backgroundColor: "#fff", borderColor: "#ccc" }}
@@ -66,6 +63,16 @@ const PersonalDetailsScreen = () => {
               label={{ color: "#333" }}
               container={{ backgroundColor: "#fff", borderColor: "#ccc" }}
             />
+
+            <RadioButtonGroup
+              selected={registered}
+              onChange={setIsregistered}
+              row
+              options={[
+                { label: "Yes", value: true },
+                { label: "No", value: false },
+              ]}
+            />
           </View>
 
           <Button title="Save Changes" gradient />
@@ -75,7 +82,7 @@ const PersonalDetailsScreen = () => {
   );
 };
 
-export default PersonalDetailsScreen;
+export default BusinessDetailsScreen;
 
 const styles = StyleSheet.create({
   container: {

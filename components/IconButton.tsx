@@ -6,12 +6,12 @@ const IconButton = ({
   title = "button",
   icon,
   index,
-  link,
+  linkTo,
 }: {
   title: string;
   icon?: React.ReactElement;
   index?: number;
-  link: RelativePathString;
+  linkTo: RelativePathString;
 }) => {
   // TO DO
   // make dynamic, bg, border and the rest
@@ -24,7 +24,7 @@ const IconButton = ({
           backgroundColor: "rgba(255, 255, 255, 0.1)",
         },
       ]}
-      onPress={() => router.navigate(`${link}`)}
+      onPress={() => linkTo && router.navigate(linkTo)}
     >
       {icon && icon}
       <Text style={[styles.text, index === 0 && { color: "purple" }]}>

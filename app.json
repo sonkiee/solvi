@@ -20,7 +20,12 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.sonkey.solvi"
     },
     "web": {
       "bundler": "metro",
@@ -29,6 +34,13 @@
     },
     "plugins": [
       "expo-router",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow $(PRODUCT_NAME) to access your photos",
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera"
+        }
+      ],
       [
         "expo-splash-screen",
         {
@@ -48,9 +60,10 @@
         "projectId": "9fb29f05-166b-441a-a324-7becdc291194"
       }
     },
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
+    "runtimeVersion":  "0.0.0",
+    // {
+    //   "policy": "appVersion"
+    // },
     "updates": {
       "url": "https://u.expo.dev/9fb29f05-166b-441a-a324-7becdc291194"
     }

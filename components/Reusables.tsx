@@ -1,5 +1,5 @@
 import { Entypo } from "@expo/vector-icons";
-import { router } from "expo-router";
+import { RelativePathString, router } from "expo-router";
 import React from "react";
 import {
   Pressable,
@@ -16,15 +16,24 @@ export const Containing = ({
   children,
   row,
   style,
+  border,
+  linkTo,
 }: {
   children: React.ReactNode;
   row?: boolean;
   style?: StyleProp<ViewStyle>;
+  border?: boolean;
+  linkTo?: RelativePathString;
 }) => {
   return (
-    <View
+    <Pressable
+      onPress={() => linkTo && router.push(linkTo)}
       style={[
         styles.containing,
+        border && {
+          borderWidth: 0.5,
+          borderColor: "rgba(255, 255, 255, 0.6)",
+        },
         row && {
           flexDirection: "row",
           justifyContent: "space-between",
@@ -34,7 +43,7 @@ export const Containing = ({
       ]}
     >
       {children}
-    </View>
+    </Pressable>
   );
 };
 
@@ -95,14 +104,13 @@ export const SegmentedControl = ({
 // =============== Shared Styles ===============
 const styles = StyleSheet.create({
   containing: {
-    borderWidth: 0.5,
-    borderColor: "rgba(255, 255, 255, 0.6)",
     borderRadius: 8,
     backgroundColor: "rgba(255, 255, 255, 0.05)",
     paddingHorizontal: 10,
     paddingVertical: 16,
     marginTop: 12,
-    flex: 1,
+    // flex: 1,
+    flexGrow: 1,
   },
   headerBack: {
     borderBottomColor: "#aaa",

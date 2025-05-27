@@ -25,15 +25,15 @@ const tabs = [
 
 const account = [
   {
-    key: "",
+    key: "personal-details",
     label: "Personal details",
-    linkTo: "",
+    linkTo: "personal-details",
     icon: <Feather name="user" size={ICON_SIZE} color={ICON_COLOR} />,
   },
   {
     key: "",
     label: "business details",
-    linkTo: "",
+    linkTo: "business-details",
     icon: (
       <Ionicons name="business-outline" size={ICON_SIZE} color={ICON_COLOR} />
     ),
@@ -41,13 +41,13 @@ const account = [
   {
     key: "",
     label: "kyc and verification",
-    linkTo: "",
+    linkTo: "kyc",
     icon: <Octicons name="verified" size={ICON_SIZE} color={ICON_COLOR} />,
   },
   {
     key: "",
     label: "bank details",
-    linkTo: "",
+    linkTo: "bank-details",
     icon: <Feather name="credit-card" size={ICON_SIZE} color={ICON_COLOR} />,
   },
   {
@@ -181,21 +181,21 @@ const ProfileScreen = () => {
                   icon: (
                     <Feather name="settings" size={ICON_SIZE} color="#aaa" />
                   ),
-                  link: "/share-profile",
+                  linkTo: "/share-profile",
                 },
                 {
                   label: "share profile",
                   icon: (
                     <Feather name="share-2" size={ICON_SIZE} color="#aaa" />
                   ),
-                  link: "/messages",
+                  linkTo: "/messages",
                 },
               ].map((item, index) => (
                 <IconButton
                   key={index}
                   title={item.label}
                   icon={item.icon}
-                  link={item.link as RelativePathString}
+                  linkTo={item.linkTo as RelativePathString}
                 />
               ))}
             </View>
@@ -266,6 +266,7 @@ const ProfileScreen = () => {
                 key={index}
                 label={item.label}
                 icon={item.icon}
+                linkTo={item.linkTo as RelativePathString}
               />
             ))}
           </View>
@@ -292,6 +293,7 @@ const ProfileScreen = () => {
                 key={index}
                 label={item.label}
                 icon={item.icon}
+                linkTo={item.linkTo as RelativePathString}
               />
             ))}
           </View>

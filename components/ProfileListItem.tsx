@@ -1,23 +1,29 @@
 import { Feather } from "@expo/vector-icons";
+import { RelativePathString, router } from "expo-router";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 const ProfileListItem = ({
   icon,
   label,
+  linkTo,
 }: {
   icon: React.ReactElement;
   label: string;
+  linkTo: RelativePathString;
 }) => {
   return (
-    <View style={styles.container}>
+    <Pressable
+      style={styles.container}
+      onPress={() => linkTo && router.push(linkTo)}
+    >
       <View style={styles.detail}>
         <View style={styles.iconContainer}>{icon}</View>
         <Text style={styles.label}>{label ?? "label"}</Text>
       </View>
 
       <Feather name="chevron-right" size={20} color="#aaa" />
-    </View>
+    </Pressable>
   );
 };
 

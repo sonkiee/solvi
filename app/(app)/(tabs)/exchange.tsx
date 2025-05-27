@@ -1,3 +1,5 @@
+import Picker from "@/components/Picker";
+import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import { currency } from "@/utils/currency";
 import { Entypo, Feather, Octicons } from "@expo/vector-icons";
@@ -51,16 +53,28 @@ const ExchangeScreen = () => {
         <View style={styles.converter}>
           <Text style={styles.label}>Amount to Convert</Text>
 
-          {/* <Picker
+          <Picker
+            options={[
+              { label: "Nigerian Naira (NGN)", value: "NGN" },
+              { label: "Ghanaian Cedis (GHS)", value: "GHS" },
+              { label: "Kenyan Shillings (KES)", value: "KES" },
+            ]}
             selectedValue={selectedCurrency}
-            onValueChange={(itemValue) => setSelectedCurrency(itemValue)}
-            style={styles.picker}
-          >
-            <Picker.Item label="NGN - Naira" value="NGN" />
-            <Picker.Item label="USD - Dollar" value="USD" />
-            <Picker.Item label="EUR - Euro" value="EUR" />
-            <Picker.Item label="GBP - Pound" value="GBP" />
-          </Picker> */}
+            onValueChange={(itemValue) => {
+              setSelectedCurrency(itemValue);
+              switch (itemValue) {
+                case "NGN":
+                  setFromCurrency({ id: "NGN", symbol: "₦" });
+                  break;
+                case "GHS":
+                  setFromCurrency({ id: "GHS", symbol: "₵" });
+                  break;
+                case "KES":
+                  setFromCurrency({ id: "KES", symbol: "KSh" });
+                  break;
+              }
+            }}
+          />
 
           <View style={styles.amountSection}>
             <View style={styles.amountSide}>
@@ -87,6 +101,18 @@ const ExchangeScreen = () => {
           </View>
 
           <Text style={styles.label}>Amount You&apos;ll Receive</Text>
+
+          {/* <View>
+            <Text> 5mins</Text>
+          </View> */}
+        </View>
+
+        <View
+          style={{
+            marginTop: 16,
+          }}
+        >
+          <Button title="Buy RMB" gradient />
         </View>
       </View>
     </Container>
