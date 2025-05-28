@@ -1,9 +1,11 @@
 import { AntDesign } from "@expo/vector-icons";
+import { CameraView, useCameraPermissions } from "expo-camera";
 import * as ImagePicker from "expo-image-picker";
 import React, { useState } from "react";
 import {
   Alert,
   Image,
+  Modal,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -14,18 +16,20 @@ const Upload = ({
   onUpload,
   title,
   desc,
+  qr,
 }: {
   onUpload?: (uri: string) => void;
   title: string;
-  desc: string;
+  desc?: string;
+  qr?: boolean;
 }) => {
   const [image, setImage] = useState<string | null>(null);
+  const [showScanner, setShowScanner] = useState(false);
+  const [permission, requestPermission] = useCameraPermissions();
 
   const requestPermissions = async () => {
     const cameraStatus = await ImagePicker.requestCameraPermissionsAsync();
-    // const mediaStatus = await ImagePicker.requestMediaLibraryPermissionsAsync();
     return cameraStatus.granted;
-    // && mediaStatus.granted;
   };
 
   const pickImageFromLibrary = async () => {
@@ -63,25 +67,27 @@ const Upload = ({
       return;
     }
 
-    Alert.alert("Upload Proof", "Choose an option", [
-      {
-        text: "Take Photo",
-        onPress: takePhoto,
-      },
-      {
-        text: "Choose from Library",
-        onPress: pickImageFromLibrary,
-      },
-      {
-        text: "Cancel",
-        style: "cancel",
-      },
-    ]);
+    const options = [
+      { text: "Take Photo", onPress: takePhoto },
+      { text: "Choose from Library", onPress: pickImageFromLibrary },
+    ];
+
+    if (qr) {
+      options.push({
+        text: "Scan Code",
+        onPress: () => setShowScanner(true),
+      });
+    }
+
+    options.push({ text: "Cancel", style: "cancel" });
+
+    Alert.alert("Upload Proof", "Choose an option", options);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{title ?? "Upload Proof"}</Text>
+      <Text style={styles.title}>{title}</Text>
+
       <TouchableOpacity style={styles.uploadInner} onPress={chooseImage}>
         {image ? (
           <Image source={{ uri: image }} style={styles.imagePreview} />
@@ -97,6 +103,25 @@ const Upload = ({
         • Minimum size: 800 x 800 pixels{"\n"}• Aspect Ratio: 1:1{"\n"}•
         Formats: JPG, PNG{"\n"}• Maximum File Size: 6MB
       </Text>
+
+      {/* QR Scanner Modal */}
+      <Modal visible={showScanner} animationType="fade">
+        <View style={styles.scannerContainer}>
+          <CameraView
+            style={StyleSheet.absoluteFill}
+            onBarcodeScanned={(data) => console.log(data)}
+            barcodeScannerSettings={{
+              barcodeTypes: ["qr"],
+            }}
+          />
+          <TouchableOpacity
+            style={styles.closeScanner}
+            onPress={() => setShowScanner(false)}
+          >
+            <Text style={styles.closeText}>Close Scanner</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -141,5 +166,22 @@ const styles = StyleSheet.create({
     color: "#333",
     textTransform: "capitalize",
     marginLeft: 8,
+  },
+  scannerContainer: {
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "center",
+    backgroundColor: "#000",
+  },
+  closeScanner: {
+    backgroundColor: "#fff",
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 40,
+  },
+  closeText: {
+    fontSize: 16,
+    color: "#000",
+    fontWeight: "600",
   },
 });

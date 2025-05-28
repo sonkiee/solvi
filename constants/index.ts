@@ -204,3 +204,46 @@ export const transactions = [
     time: "06:55 PM",
   },
 ];
+
+export const gradientColors = {
+  from: "rgba(46, 58, 89, 0.4)",
+  to: "rgba(76, 90, 114, 0.5)",
+};
+
+export const greens = {
+  from: "#042f28",
+  through: "#9bf2c8",
+  to: "#b0f3d2",
+};
+
+export const gradientGreens = {
+  from: "rgba(4, 47, 40, 0.5)",
+  through: "rgba(155, 242, 200, 0.5)",
+  to: "rgba(176, 243, 210, 0.5)",
+};
+
+export const colors = {
+  primary: "#4F46E5", // Main action (buttons, links)
+  secondary: "#10B981", // Secondary action
+
+  // Backgrounds & surfaces
+  background: "#F9FAFB", // App/page background
+  surface: "#FFFFFF", // Cards, modals, sheets
+
+  from: "#2E3A59",
+  to: "#4C5A72",
+
+  // Borders & separators
+  border: "#E5E7EB", // Input borders, dividers
+
+  // Text
+  textPrimary: "#111827", // Main text
+  textSecondary: "#6B7280", // Captions, secondary labels
+
+  // Accent & status
+  accent: "#F59E0B", // Highlights, tags
+  error: "#EF4444", // Errors, destructive actions
+  success: "#22C55E", // Successful actions
+  warning: "#F97316", // Warnings, alerts
+  info: "#3B82F6", // Tips, neutral messages
+};

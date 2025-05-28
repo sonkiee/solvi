@@ -7,12 +7,12 @@ const actions = [
   {
     label: "buy rmb",
     icon: <FontAwesome name="yen" size={20} color="white" />,
-    colors: ["green", "green"],
+    colors: ["#468bf0", "#326cc5"],
   },
   {
     label: "buy rmb",
     icon: <AntDesign name="filetext1" size={20} color="white" />,
-    colors: ["green", "green"],
+    colors: ["#ed00b5", "#bf0091"],
   },
 ];
 

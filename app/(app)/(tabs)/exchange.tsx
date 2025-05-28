@@ -3,6 +3,7 @@ import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import { currency } from "@/utils/currency";
 import { Entypo, Feather, Octicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
@@ -112,7 +113,11 @@ const ExchangeScreen = () => {
             marginTop: 16,
           }}
         >
-          <Button title="Buy RMB" gradient />
+          <Button
+            title="Buy RMB"
+            gradient
+            onPress={() => router.navigate("/send-to-details")}
+          />
         </View>
       </View>
     </Container>

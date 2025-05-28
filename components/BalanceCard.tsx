@@ -5,6 +5,7 @@ import {
   Ionicons,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
+import { RelativePathString } from "expo-router";
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import IconButton from "./IconButton";
@@ -33,12 +34,12 @@ const BalanceCard = () => {
         {[
           {
             label: "fund",
-            link: "fund",
+            linkTo: "fund",
             icon: <Ionicons name="wallet-outline" size={18} color="purple" />,
           },
           {
             label: "transfer",
-            link: "transfer",
+            linkTo: "transfer",
             icon: (
               <FontAwesome6
                 name="arrow-right-arrow-left"
@@ -49,7 +50,7 @@ const BalanceCard = () => {
           },
           {
             label: "history",
-            link: "transactions",
+            linkTo: "transactions",
 
             icon: (
               <MaterialCommunityIcons name="history" size={18} color="#ccc" />
@@ -61,7 +62,7 @@ const BalanceCard = () => {
             index={index}
             title={button.label}
             icon={button.icon}
-            link={button.link}
+            linkTo={button.linkTo as RelativePathString}
           />
         ))}
       </View>
@@ -85,7 +86,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    paddingHorizontal: 16,
+    // paddingHorizontal: 5,
     paddingVertical: 10,
     gap: 10,
     flex: 1,

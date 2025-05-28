@@ -1,4 +1,4 @@
-import { Images } from "@/constants";
+import { gradientColors, Images } from "@/constants";
 import { ImageBackground } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, View } from "react-native";
@@ -22,13 +22,13 @@ const Container = ({
         style={StyleSheet.absoluteFill}
         contentFit="cover"
       >
+        {/* "rgba(147, 51, 234, 0.4)", "rgba(37, 99, 235, 0.5)" */}
         <LinearGradient
-          colors={["rgba(147, 51, 234, 0.4)", "rgba(37, 99, 235, 0.5)"]}
+          colors={[gradientColors.from, gradientColors.to]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
           style={StyleSheet.absoluteFill}
         />
-
         <View
           style={{
             flex: 1,

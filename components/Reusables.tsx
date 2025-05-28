@@ -18,16 +18,22 @@ export const Containing = ({
   style,
   border,
   linkTo,
+  onPress,
 }: {
   children: React.ReactNode;
   row?: boolean;
   style?: StyleProp<ViewStyle>;
   border?: boolean;
   linkTo?: RelativePathString;
+  onPress?: () => void;
 }) => {
+  const handlePress = () => {
+    if (onPress) onPress();
+    if (linkTo) router.push(linkTo);
+  };
   return (
     <Pressable
-      onPress={() => linkTo && router.push(linkTo)}
+      onPress={handlePress}
       style={[
         styles.containing,
         border && {

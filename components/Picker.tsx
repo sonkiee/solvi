@@ -19,6 +19,8 @@ type PickerProps = {
   onValueChange: (value: string) => void;
   placeholder?: string;
   icon?: React.ReactElement;
+  transparent?: boolean;
+  title?: string;
 };
 
 const Picker = ({
@@ -27,6 +29,8 @@ const Picker = ({
   onValueChange,
   placeholder = "Select an option",
   icon,
+  transparent,
+  title,
 }: PickerProps) => {
   const [visible, setVisible] = useState(false);
 
@@ -35,11 +39,40 @@ const Picker = ({
 
   return (
     <View style={styles.container}>
+      {title && (
+        <Text
+          style={{
+            paddingVertical: 5,
+            fontWeight: "500",
+            color: "#aaa",
+            fontSize: 15,
+          }}
+        >
+          {title ?? "title"}
+        </Text>
+      )}
       <TouchableOpacity
-        style={styles.inputBox}
+        style={[
+          styles.inputBox,
+          transparent
+            ? {
+                backgroundColor: "rgba(255,255,255, 0.1)",
+              }
+            : {
+                backgroundColor: "#fff",
+              },
+        ]}
         onPress={() => setVisible((v) => !v)}
       >
-        <Text style={selectedValue ? styles.text : styles.placeholder}>
+        <Text
+          style={
+            selectedValue
+              ? styles.text
+              : selectedValue && transparent
+              ? { color: "#ccc" }
+              : styles.placeholder
+          }
+        >
           {selectedLabel}
         </Text>
       </TouchableOpacity>
@@ -58,7 +91,7 @@ const Picker = ({
                 }}
               >
                 {icon && icon}
-                <Text style={styles.optionText}>{item.label}</Text>
+                <Text style={[styles.optionText]}>{item.label}</Text>
               </TouchableOpacity>
             )}
           />
@@ -79,10 +112,10 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
     borderRadius: 6,
     padding: 12,
-    backgroundColor: "#fff",
   },
   text: {
-    color: "#000",
+    // color: "#000",
+    color: "#fff",
   },
   placeholder: {
     color: "#aaa",

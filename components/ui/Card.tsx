@@ -11,7 +11,7 @@ const Card = ({
   children: ReactNode;
   colors: [string, string];
   height?: number;
-  width?: number;
+  width?: number | string;
 }) => {
   return (
     <LinearGradient

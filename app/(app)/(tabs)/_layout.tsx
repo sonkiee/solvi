@@ -76,8 +76,9 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="bills"
+        name="(bills)"
         options={{
+          headerShown: false,
           title: "Bills",
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="filetext1" color={color} size={20} />

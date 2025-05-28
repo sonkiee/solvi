@@ -7,7 +7,7 @@ import BalanceCard from "./BalanceCard";
 
 const HomeHeader = () => {
   return (
-    <BlurView intensity={80} tint="dark" style={styles.container}>
+    <BlurView intensity={80} tint="regular" style={styles.container}>
       <View style={styles.actionContainer}>
         <TouchableOpacity onPress={() => router.navigate("/transactions")}>
           <Feather name="bell" size={18} color="#fff" />
@@ -15,7 +15,7 @@ const HomeHeader = () => {
         <View style={styles.iconGroup}>
           <AntDesign name="questioncircleo" size={20} color="#fff" />
           <TouchableOpacity
-            onPress={() => router.navigate("/(app)/(tabs)/profile")}
+            onPress={() => router.navigate("/(app)/(tabs)/(profile)")}
             style={{ backgroundColor: "white", padding: 4, borderRadius: 999 }}
           >
             <Feather name="user" size={24} color="#9333ea" />
@@ -32,7 +32,8 @@ export default HomeHeader;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#9333ea",
+    // backgroundColor: "#9333ea",
+    backgroundColor: "#2E3A59",
     paddingTop: 15,
     paddingHorizontal: 16,
     paddingBottom: 12,

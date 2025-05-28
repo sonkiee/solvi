@@ -16,7 +16,7 @@ import {
 
 interface TextInputProps extends RNTextInputProps {
   title?: string;
-  value?: string;
+  value?: any;
   icon?: ReactElement;
   placeholder?: string;
   containerStyle?: StyleProp<ViewStyle>;
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     borderWidth: StyleSheet.hairlineWidth,
-    borderColor: "#f4f5f7",
+    borderColor: "#ccc",
     borderRadius: 8,
     paddingHorizontal: 10,
     paddingVertical: 13,
