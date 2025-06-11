@@ -29,7 +29,7 @@ const Picker = ({
   onValueChange,
   placeholder = "Select an option",
   icon,
-  transparent,
+  transparent = false,
   title,
 }: PickerProps) => {
   const [visible, setVisible] = useState(false);
@@ -39,40 +39,17 @@ const Picker = ({
 
   return (
     <View style={styles.container}>
-      {title && (
-        <Text
-          style={{
-            paddingVertical: 5,
-            fontWeight: "500",
-            color: "#aaa",
-            fontSize: 15,
-          }}
-        >
-          {title ?? "title"}
-        </Text>
-      )}
+      {title && <Text style={styles.title}>{title}</Text>}
       <TouchableOpacity
         style={[
           styles.inputBox,
           transparent
-            ? {
-                backgroundColor: "rgba(255,255,255, 0.1)",
-              }
-            : {
-                backgroundColor: "#fff",
-              },
+            ? { backgroundColor: "rgba(255,255,255, 0.1)" }
+            : { backgroundColor: "#fff" },
         ]}
         onPress={() => setVisible((v) => !v)}
       >
-        <Text
-          style={
-            selectedValue
-              ? styles.text
-              : selectedValue && transparent
-              ? { color: "#ccc" }
-              : styles.placeholder
-          }
-        >
+        <Text style={selectedValue ? styles.selectedText : styles.placeholder}>
           {selectedLabel}
         </Text>
       </TouchableOpacity>
@@ -91,7 +68,7 @@ const Picker = ({
                 }}
               >
                 {icon && icon}
-                <Text style={[styles.optionText]}>{item.label}</Text>
+                <Text style={styles.optionText}>{item.label}</Text>
               </TouchableOpacity>
             )}
           />
@@ -107,15 +84,20 @@ const styles = StyleSheet.create({
   container: {
     marginBottom: 10,
   },
+  title: {
+    paddingVertical: 5,
+    fontWeight: "500",
+    color: "#aaa",
+    fontSize: 15,
+  },
   inputBox: {
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 6,
     padding: 12,
   },
-  text: {
-    // color: "#000",
-    color: "#fff",
+  selectedText: {
+    color: "#000", // Always black when value is selected
   },
   placeholder: {
     color: "#aaa",

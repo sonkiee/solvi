@@ -15,5 +15,7 @@ export default BlurredHeaderContainer;
 const styles = StyleSheet.create({
   container: {
     width: "100%",
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: "rgba(255, 255, 255, 0.3)",
   },
 });

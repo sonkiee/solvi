@@ -53,7 +53,7 @@ const account = [
   {
     key: "",
     label: "user id",
-    linkTo: "",
+    linkTo: "user-id",
     icon: <Feather name="user" size={24} color={ICON_COLOR} />,
   },
 ];
@@ -62,19 +62,19 @@ const wallet = [
   {
     key: "",
     label: "Manage cards",
-    linkTo: "",
+    linkTo: "manage-cards",
     icon: <Feather name="credit-card" size={ICON_SIZE} color={ICON_COLOR} />,
   },
   {
     key: "",
     label: "Default currency",
-    linkTo: "",
+    linkTo: "default-currency",
     icon: <Fontisto name="money-symbol" size={ICON_SIZE} color={ICON_COLOR} />,
   },
   {
     key: "",
     label: "refer and earn",
-    linkTo: "",
+    linkTo: "refer-and-earn",
     icon: <Ionicons name="gift-outline" size={ICON_SIZE} color={ICON_COLOR} />,
   },
 ];
@@ -83,13 +83,13 @@ const security = [
   {
     key: "change-password",
     label: "change password",
-    linkTo: "",
+    linkTo: "change-password",
     icon: <Feather name="user" size={ICON_SIZE} color={ICON_COLOR} />,
   },
   {
     key: "2fa",
     label: "two-factor authentication",
-    linkTo: "",
+    linkTo: "2fa",
     icon: (
       <MaterialCommunityIcons
         name="two-factor-authentication"
@@ -101,7 +101,7 @@ const security = [
   {
     key: "manage-biometrics",
     label: "manage biometrics",
-    linkTo: "",
+    linkTo: "manage-biometrics",
     icon: (
       <MaterialCommunityIcons
         name="fingerprint"

@@ -9,7 +9,7 @@ const HomeHeader = () => {
   return (
     <BlurView intensity={80} tint="regular" style={styles.container}>
       <View style={styles.actionContainer}>
-        <TouchableOpacity onPress={() => router.navigate("/transactions")}>
+        <TouchableOpacity onPress={() => router.navigate("/notifications")}>
           <Feather name="bell" size={18} color="#fff" />
         </TouchableOpacity>
         <View style={styles.iconGroup}>

@@ -26,7 +26,7 @@ const Container = ({
         <LinearGradient
           colors={[gradientColors.from, gradientColors.to]}
           start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
+          end={{ x: 0, y: 1 }}
           style={StyleSheet.absoluteFill}
         />
         <View

@@ -206,8 +206,9 @@ export const transactions = [
 ];
 
 export const gradientColors = {
-  from: "rgba(46, 58, 89, 0.4)",
-  to: "rgba(76, 90, 114, 0.5)",
+  from: " rgba(27, 27, 27, 0.5)",
+
+  to: "rgba(44, 44, 44, 0.4)",
 };
 
 export const greens = {

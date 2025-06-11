@@ -1,3 +1,4 @@
+import React from "react";
 import {
   ActivityIndicator,
   Pressable,
@@ -19,6 +20,7 @@ interface ButtonProps extends PressableProps {
   style?: StyleProp<ViewStyle>;
   testID?: string;
   gradient?: boolean;
+  icon?: React.ReactNode; // Optional icon prop
 }
 
 // TODO: add support for icons, varient e.g primary, outline, and danger abd animated loading spinner
@@ -32,6 +34,7 @@ const Button = ({
   style,
   testID,
   gradient,
+  icon,
   ...rest
 }: ButtonProps) => {
   const isDisabled = disabled || loading;
@@ -56,7 +59,10 @@ const Button = ({
           {loading ? (
             <ActivityIndicator size="small" color="#fff" />
           ) : (
-            <Text style={styles.text}>{title}</Text>
+            <>
+              {icon && <View style={styles.iconContainer}>{icon}</View>}
+              <Text style={styles.text}>{title}</Text>
+            </>
           )}
         </View>
       </Pressable>
@@ -88,6 +94,9 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 16,
     fontWeight: "600",
+  },
+  iconContainer: {
+    marginRight: 8,
   },
 });
 
