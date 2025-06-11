@@ -12,6 +12,12 @@ export default function RootLayout() {
       >
         <Stack.Screen name="(app)" />
         <Stack.Screen name="(auth)" />
+        <Stack.Screen
+          name="(lock)"
+          options={{
+            animation: "fade_from_bottom",
+          }}
+        />
       </Stack>
 
       <Alerts
