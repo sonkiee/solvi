@@ -1,17 +1,17 @@
+import { useAuth } from "@/providers/AuthProvider";
+import { useAuthStore } from "@/store/auth";
 import { Redirect } from "expo-router";
-import { useState } from "react";
+import { useMemo } from "react";
 
 export default function Index() {
-  const [isLocked, setIsLocked] = useState(true);
-  const [user, setUser] = useState(true);
+  const { user } = useAuth();
+  const { isLocked } = useAuthStore();
 
-  if (!user) {
-    return <Redirect href="/(auth)/sign-in" />;
-  }
+  const target = useMemo(() => {
+    if (!user) return "/(auth)/sign-in";
+    if (isLocked) return "/(lock)";
+    return "/(app)/(tabs)";
+  }, [user, isLocked]);
 
-  if (isLocked) {
-    return <Redirect href="/(lock)" />;
-  }
-
-  return <Redirect href="/home" />;
+  return <Redirect href={target} />;
 }

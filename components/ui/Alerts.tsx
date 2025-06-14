@@ -17,6 +17,11 @@ const Alerts = ({
   title = "Warning",
   description = "This is a description of the alert.",
   onDismiss,
+}: {
+  type?: "warning" | "info" | "success" | "error";
+  title?: string;
+  description?: string;
+  onDismiss?: () => void;
 }) => {
   const [visible, setVisible] = useState(true);
   const translateX = useRef(new Animated.Value(0)).current;
@@ -85,7 +90,12 @@ const Alerts = ({
       ]}
       {...panResponder.panHandlers}
     >
-      <Ionicons name={iconName} size={24} color={icon} style={styles.icon} />
+      <Ionicons
+        name={iconName as keyof typeof Ionicons.glyphMap}
+        size={24}
+        color={icon}
+        style={styles.icon}
+      />
 
       <View style={styles.content}>
         <View style={styles.headerRow}>

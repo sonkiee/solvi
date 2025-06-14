@@ -11,6 +11,7 @@ const HomeScreen = () => {
       <ScrollView
         automaticallyAdjustContentInsets={true}
         contentInsetAdjustmentBehavior="automatic"
+        style={{ flex: 1 }}
       >
         <HomeHeader />
 

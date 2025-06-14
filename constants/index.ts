@@ -248,3 +248,17 @@ export const colors = {
   warning: "#F97316", // Warnings, alerts
   info: "#3B82F6", // Tips, neutral messages
 };
+
+export const notifications = [
+  { id: "1", type: "info", message: "Your profile was updated." },
+  { id: "2", type: "success", message: "Your payment was successful." },
+  { id: "3", type: "warning", message: "Unusual login attempt detected." },
+  {
+    id: "4",
+    type: "urgent",
+    message: "Action required: Verify your identity.",
+  },
+  { id: "5", type: "success", message: "Withdrawal processed." },
+  { id: "6", type: "info", message: "New feature available!" },
+  { id: "7", type: "warning", message: "Password will expire soon." },
+];

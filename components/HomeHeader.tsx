@@ -1,30 +1,44 @@
 import { AntDesign, Feather } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import { router } from "expo-router";
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import BalanceCard from "./BalanceCard";
+import NotificationsSummary from "./NotifcationsSummary";
 
 const HomeHeader = () => {
-  return (
-    <BlurView intensity={80} tint="regular" style={styles.container}>
-      <View style={styles.actionContainer}>
-        <TouchableOpacity onPress={() => router.navigate("/notifications")}>
-          <Feather name="bell" size={18} color="#fff" />
-        </TouchableOpacity>
-        <View style={styles.iconGroup}>
-          <AntDesign name="questioncircleo" size={20} color="#fff" />
-          <TouchableOpacity
-            onPress={() => router.navigate("/(app)/(tabs)/(profile)")}
-            style={{ backgroundColor: "white", padding: 4, borderRadius: 999 }}
-          >
-            <Feather name="user" size={24} color="#9333ea" />
-          </TouchableOpacity>
-        </View>
-      </View>
+  const [visible, setVisible] = useState(false);
 
-      <BalanceCard />
-    </BlurView>
+  const toggleNotifications = () => {
+    setVisible((prev) => !prev);
+  };
+
+  return (
+    <>
+      <BlurView intensity={80} tint="regular" style={styles.container}>
+        <View style={styles.actionContainer}>
+          <TouchableOpacity onPress={toggleNotifications}>
+            <Feather name="bell" size={18} color="#fff" />
+          </TouchableOpacity>
+          <View style={styles.iconGroup}>
+            <AntDesign name="questioncircleo" size={20} color="#fff" />
+            <TouchableOpacity
+              onPress={() => router.navigate("/(app)/(tabs)/(profile)")}
+              style={{
+                backgroundColor: "white",
+                padding: 4,
+                borderRadius: 999,
+              }}
+            >
+              <Feather name="user" size={24} color="#9333ea" />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <BalanceCard />
+      </BlurView>
+      <NotificationsSummary visible={visible} setVisible={setVisible} />
+    </>
   );
 };
 
@@ -42,6 +56,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
     elevation: 3,
+    // zIndex: 9999999,
+    flex: 1,
   },
   actionContainer: {
     flexDirection: "row",
