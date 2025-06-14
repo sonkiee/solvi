@@ -1,11 +1,12 @@
 import Alerts from "@/components/ui/Alerts";
-import { AuthProvider } from "@/providers/AuthProvider";
+import { useHydrateStores } from "@/hooks/useHydrateStores";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 
 export default function RootLayout() {
+  useHydrateStores();
   return (
-    <AuthProvider>
+    <>
       <Stack
         screenOptions={{
           headerShown: false,
@@ -27,6 +28,6 @@ export default function RootLayout() {
         description="Your wallet balance is running low. Please top-up to continue using the service."
       />
       <StatusBar translucent backgroundColor="transparent" style="auto" />
-    </AuthProvider>
+    </>
   );
 }

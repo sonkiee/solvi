@@ -13,14 +13,20 @@
       "ios": {
         "image": "latest"
       },
-      "channel": "development"
+      "channel": "development",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://phinxtech.org/staging/api/v1"
+      }
     },
     "development-simulator": {
       "extends": "development",
       "ios": {
         "simulator": true
       },
-      "channel": "development-simulator"
+      "channel": "development-simulator",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://phinxtech.org/staging/api/v1"
+      }
     },
     "preview": {
       "distribution": "internal",
@@ -30,6 +36,9 @@
       },
       "ios": {
         "image": "latest"
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://phinxtech.org/staging/api/v1"
       }
     },
     "production": {
@@ -40,6 +49,9 @@
       },
       "ios": {
         "image": "latest"
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://phinxtech.org/staging/api/v1"
       }
     }
   },

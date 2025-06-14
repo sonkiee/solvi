@@ -24,20 +24,20 @@ export const useAuthStore = create<AuthState>()(
       setIsLocked: (isLocked) => set({ isLocked }),
 
       setTokens: async (accessToken, refreshToken) => {
-        Storage.set("accessToken", accessToken);
-        Storage.set("refreshToken", refreshToken);
+        await Storage.set("accessToken", accessToken);
+        await Storage.set("refreshToken", refreshToken);
         set({ accessToken, refreshToken });
       },
 
       logout: async () => {
-        Storage.delete("accessToken");
-        Storage.delete("refreshToken");
+        await Storage.delete("accessToken");
+        await Storage.delete("refreshToken");
         set({ accessToken: null, refreshToken: null });
       },
 
       hydrate: async () => {
-        const accessToken = Storage.get("accessToken");
-        const refreshToken = Storage.get("refreshToken");
+        const accessToken = await Storage.get("accessToken");
+        const refreshToken = await Storage.get("refreshToken");
         set({ accessToken, refreshToken });
       },
     }),

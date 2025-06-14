@@ -9,7 +9,7 @@ const Lock = () => {
       <Button
         title="Unlock"
         onPress={() => {
-          router.replace("/home");
+          router.replace("/(app)/(tabs)");
         }}
       />
     </View>

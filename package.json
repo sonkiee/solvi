@@ -1,7 +1,7 @@
 {
   "name": "solvi",
   "main": "expo-router/entry",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
@@ -20,7 +20,7 @@
     "@react-navigation/native": "^7.1.6",
     "@tanstack/react-query": "^5.77.2",
     "axios": "^1.10.0",
-    "expo": "53.0.11",
+    "expo": "^53.0.11",
     "expo-blur": "~14.1.5",
     "expo-camera": "~16.1.8",
     "expo-checkbox": "~4.1.4",
@@ -44,7 +44,6 @@
     "react-dom": "19.0.0",
     "react-native": "0.79.3",
     "react-native-gesture-handler": "~2.24.0",
-    "react-native-mmkv": "^3.2.0",
     "react-native-reanimated": "~3.17.4",
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
@@ -58,6 +57,7 @@
     "@types/react": "~19.0.10",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~9.2.0",
+    "expo-module-scripts": "^4.1.7",
     "typescript": "~5.8.3"
   },
   "private": true,

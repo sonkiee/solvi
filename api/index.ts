@@ -1,8 +1,9 @@
 // src/lib/apiClient.ts
+
 import Storage from "@/lib/storage";
 import axios from "axios";
 
-const API_BASE_URL = "https://api.example.com";
+const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL;
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
@@ -13,14 +14,26 @@ const apiClient = axios.create({
 });
 
 apiClient.interceptors.request.use(
-  (config) => {
-    const token = Storage.get("token"); // no await
+  async (config) => {
+    const token = await Storage.get("token");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
+    const fullUrl = `${config.baseURL}${config.url}`;
+    console.log("FULL REQUEST URL:", fullUrl);
+
     return config;
   },
   (error) => Promise.reject(error)
+);
+
+apiClient.interceptors.response.use(
+  (response) => {
+    return response.data;
+  },
+  (error) => {
+    return Promise.reject(error.response?.data);
+  }
 );
 
 const request = async (
@@ -38,7 +51,7 @@ const request = async (
     });
     return response.data;
   } catch (error) {
-    console.error(`[API ${method.toUpperCase()} Error]:`, error);
+    // console.error(`[API ${method.toUpperCase()} Error]:`, error);
     throw error;
   }
 };

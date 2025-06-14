@@ -53,7 +53,6 @@
     ],
     "experiments": {
       "typedRoutes": true,
-      "turboModules": true
     },
     "extra": {
       "router": {},

@@ -1,12 +1,37 @@
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import TextInput from "@/components/ui/Input";
+import { useUserStore } from "@/store/user";
 import { MaterialCommunityIcons, Octicons } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import { router } from "expo-router";
+import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 const SigninScreen = () => {
+  const { login, isLoading } = useUserStore();
+  const [error, setError] = useState<string | null>(null);
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleSignIn = async () => {
+    setError(null); // Reset error state before attempting login
+    if (!form.email || !form.password) {
+      console.error("Email and password are required");
+      setError("Email and password are required.");
+      return;
+    }
+
+    try {
+      await login(form.email, form.password);
+      // router.replace("/(app)/(tabs)");
+    } catch (error) {
+      console.error("Sign in error:", error);
+      setError("Sign in failed. Please check your credentials.");
+    }
+  };
   return (
     <Container>
       <BlurView intensity={50} tint="dark" style={StyleSheet.absoluteFill}>
@@ -21,6 +46,8 @@ const SigninScreen = () => {
                 color="white"
               />
             }
+            value={form.email}
+            onChangeText={(text) => setForm({ ...form, email: text })}
           />
 
           <TextInput
@@ -28,11 +55,21 @@ const SigninScreen = () => {
             placeholder="Password"
             secureTextEntry
             icon={<Octicons name="lock" size={22} color="white" />}
+            value={form.password}
+            onChangeText={(text) => setForm({ ...form, password: text })}
           />
+
+          {error && (
+            <Text style={{ color: "red", textAlign: "left", fontSize: 13 }}>
+              {error}
+            </Text>
+          )}
 
           <Button
             title="Sign In"
-            onPress={() => router.replace("/(app)/(tabs)")}
+            onPress={handleSignIn}
+            loading={isLoading}
+            disabled={isLoading}
             gradient
           />
 
