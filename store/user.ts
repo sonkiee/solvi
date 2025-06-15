@@ -19,6 +19,8 @@ type UserState = {
   login: (email: string, password: string) => Promise<void>;
   signup: (payload: any) => Promise<void>;
   setUser: (user: User) => Promise<void>;
+  verifyEmail: (email: string, otp: string) => Promise<void>;
+  resendOtp: (ref_code: string) => Promise<void>;
   clearUser: () => Promise<void>;
   hydrate: () => Promise<void>;
 };
@@ -34,6 +36,8 @@ export const useUserStore = create<UserState>()(
         try {
           const response = await Api.post("/user-login", { email, password });
           console.log("Login response:", response);
+          const data = response;
+          await useUserStore.getState().setUser(data);
         } catch (error) {
           // console.error("Login error:", error);
           throw error;
@@ -47,8 +51,36 @@ export const useUserStore = create<UserState>()(
         try {
           const response = await Api.post("/user-onboard", payload);
           console.log("Signup response:", response);
+          const data = response;
+          await useUserStore.getState().setUser(data);
         } catch (error) {
           // console.error("Signup error:", error);
+          throw error;
+        } finally {
+          set({ isLoading: false });
+        }
+      },
+
+      verifyEmail: async (email, otp) => {
+        set({ isLoading: true });
+        try {
+          const response = await Api.post("/verify-otp", { email, otp });
+          console.log("Verification response", response);
+          return response;
+        } catch (error) {
+          throw error;
+        } finally {
+          set({ isLoading: false });
+        }
+      },
+
+      resendOtp: async (ref_code) => {
+        set({ isLoading: true });
+        try {
+          const response = await Api.post(`resend-otp/${ref_code}`);
+          console.log("Verification response", response);
+          return response;
+        } catch (error) {
           throw error;
         } finally {
           set({ isLoading: false });

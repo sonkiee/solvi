@@ -266,8 +266,8 @@ const SignupScreen = () => {
 
               <Button
                 title="Sign Up"
-                // onPress={handleSignUp}
-                onPress={() => router.navigate("/(auth)/email-verification")}
+                onPress={handleSignUp}
+                // onPress={() => router.navigate("/(auth)/email-verification")}
                 loading={isLoading}
                 disabled={isLoading}
                 gradient

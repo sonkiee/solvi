@@ -11,6 +11,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 const SigninScreen = () => {
   const { login, isLoading } = useUserStore();
   const [error, setError] = useState<string | null>(null);
+  const [verificationRequired, setVerificationRequired] = useState(false);
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -18,6 +19,7 @@ const SigninScreen = () => {
 
   const handleSignIn = async () => {
     setError(null); // Reset error state before attempting login
+    setVerificationRequired(false);
     if (!form.email || !form.password) {
       console.error("Email and password are required");
       setError("Email and password are required.");
@@ -29,7 +31,17 @@ const SigninScreen = () => {
       // router.replace("/(app)/(tabs)");
     } catch (error) {
       console.error("Sign in error:", error);
-      setError("Sign in failed. Please check your credentials.");
+
+      if (error instanceof Error) {
+        setError(error?.message);
+
+        if (error?.message?.includes("Email not verified")) {
+          setVerificationRequired(true);
+          return;
+        }
+      } else {
+        setError("An unexpected error occurred. Please try again.");
+      }
     }
   };
   return (
@@ -59,11 +71,33 @@ const SigninScreen = () => {
             onChangeText={(text) => setForm({ ...form, password: text })}
           />
 
-          {error && (
-            <Text style={{ color: "red", textAlign: "left", fontSize: 13 }}>
-              {error}
-            </Text>
-          )}
+          <View
+            style={{
+              flexDirection: "row",
+              alignContent: "center",
+              gap: 4,
+            }}
+          >
+            {error && (
+              <Text style={{ color: "red", textAlign: "left", fontSize: 13 }}>
+                {error}
+              </Text>
+            )}
+            {verificationRequired && (
+              <TouchableOpacity
+                onPress={() =>
+                  router.push({
+                    pathname: "/(auth)/email-verification",
+                    params: { email: form.email },
+                  })
+                }
+              >
+                <Text style={{ color: "#6FA6FF", fontSize: 13 }}>
+                  Click to verify
+                </Text>
+              </TouchableOpacity>
+            )}
+          </View>
 
           <Button
             title="Sign In"
