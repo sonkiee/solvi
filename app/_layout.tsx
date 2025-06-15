@@ -1,10 +1,15 @@
 import Alerts from "@/components/ui/Alerts";
 import { useHydrateStores } from "@/hooks/useHydrateStores";
+import { useNotificationListeners } from "@/hooks/useNotificationListener";
+import { initNotifications } from "@/lib/initNotifications";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 
+initNotifications();
+
 export default function RootLayout() {
   useHydrateStores();
+  useNotificationListeners();
   return (
     <>
       <Stack

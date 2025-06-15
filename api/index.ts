@@ -32,7 +32,10 @@ apiClient.interceptors.response.use(
     return response.data;
   },
   (error) => {
-    return Promise.reject(error.response?.data);
+    const apiError = error.response?.data;
+    const message = apiError?.message || "An unknown error occurred";
+
+    return Promise.reject(new Error(message));
   }
 );
 

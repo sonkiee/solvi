@@ -49,6 +49,11 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ], [
+        "expo-notifications", {
+          "color": "#000000",
+          "enableBackgroundRemoteNotifications": true
+        }
       ]
     ],
     "experiments": {

@@ -39,9 +39,11 @@ const TextInput = ({
   ...rest
 }: TextInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
-  const isPassword = title?.toLowerCase() === "password";
+  const isPassword =
+    title?.toLowerCase() === "password" ||
+    title?.toLowerCase() === "confirm password";
   const [secureTextEntry, setSecureTextEntry] = useState(
-    isPassword ? true : secureProp ?? false
+    isPassword ? true : (secureProp ?? false)
   );
 
   return (

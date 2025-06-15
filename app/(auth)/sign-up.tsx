@@ -43,13 +43,13 @@ const SignupScreen = () => {
   });
 
   const payLoad = {
-    first_name: form.firstName,
-    last_name: form.lastName,
-    email: form.email,
-    phone: form.phone,
-    referral: form.referral,
-    nin: form.nin,
-    password: form.password,
+    first_name: form.firstName.trim(),
+    last_name: form.lastName.trim(),
+    email: form.email.trim().toLowerCase(),
+    phone: form.phone.trim(),
+    referral: form.referral.trim(),
+    nin: form.nin.trim(),
+    password: form.password.trim(),
     terms: form.terms,
   };
 
@@ -88,7 +88,13 @@ const SignupScreen = () => {
       try {
         await signup(payLoad);
       } catch (error) {
-        console.error("Sign up error:", error);
+        if (error instanceof Error) {
+          setError(error.message);
+          console.error("Sign up error:", error);
+        } else {
+          console.error("Sign up error:", error);
+          setError("An unknown error occurred.");
+        }
         // Handle error (e.g., show a message to the user)
       }
     }
@@ -150,9 +156,7 @@ const SignupScreen = () => {
                   />
                 }
                 value={form.email}
-                onChangeText={(text) =>
-                  setForm({ ...form, email: text.trim().toLowerCase() })
-                }
+                onChangeText={(text) => setForm({ ...form, email: text })}
                 container={
                   errors.email && { borderColor: "red", borderWidth: 1 }
                 }
@@ -173,9 +177,7 @@ const SignupScreen = () => {
                 }
                 keyboardType="phone-pad"
                 value={form.phone}
-                onChangeText={(text) =>
-                  setForm({ ...form, phone: text.trim() })
-                }
+                onChangeText={(text) => setForm({ ...form, phone: text })}
                 container={
                   errors.phone && { borderColor: "red", borderWidth: 1 }
                 }
@@ -195,9 +197,7 @@ const SignupScreen = () => {
                   />
                 }
                 value={form.referral}
-                onChangeText={(text) =>
-                  setForm({ ...form, referral: text.trim() })
-                }
+                onChangeText={(text) => setForm({ ...form, referral: text })}
               />
 
               <TextInput
@@ -229,13 +229,13 @@ const SignupScreen = () => {
               )} */}
 
               <TextInput
-                title="Password"
+                title="Confirm Password"
                 placeholder="Re-enter your password"
                 secureTextEntry
                 icon={<Octicons name="lock" size={22} color="#aaa" />}
                 value={form.confirmPassword}
                 onChangeText={(text) =>
-                  setForm({ ...form, confirmPassword: text.trim() })
+                  setForm({ ...form, confirmPassword: text })
                 }
                 container={
                   errors.confirmPassword && {
@@ -247,6 +247,7 @@ const SignupScreen = () => {
               {/* {errors.confirmPassword && (
                 <Text style={styles.errorText}>{errors.confirmPassword}</Text>
               )} */}
+              {error && <Text style={styles.errorText}>{error}</Text>}
 
               <Text style={{ color: "#aaa", fontSize: 12 }}>
                 By clicking Signup you agree to our{" "}
@@ -265,7 +266,8 @@ const SignupScreen = () => {
 
               <Button
                 title="Sign Up"
-                onPress={handleSignUp}
+                // onPress={handleSignUp}
+                onPress={() => router.navigate("/(auth)/email-verification")}
                 loading={isLoading}
                 disabled={isLoading}
                 gradient
@@ -283,7 +285,9 @@ const SignupScreen = () => {
                   </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => router.navigate("/(auth)/forgot-password")}
+                >
                   <Text style={styles.footerLink}>Forgot Password?</Text>
                 </TouchableOpacity>
               </View>

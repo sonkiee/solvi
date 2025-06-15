@@ -10,6 +10,7 @@ type User = {
   email: string;
   name: string;
   role: string;
+  pushToken?: string;
 };
 
 type UserState = {
